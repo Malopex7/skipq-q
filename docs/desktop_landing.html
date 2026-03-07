@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#aef028",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#1c2210",
+                        "navy": "#0a192f",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 dark:bg-background-dark/80 dark:border-slate-800">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between px-4 py-4">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1 rounded-lg">
+<span class="material-symbols-outlined text-navy">timer</span>
+</div>
+<h1 class="text-2xl font-black tracking-tight text-navy dark:text-primary">SkipQ</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-semibold hover:text-primary transition-colors" href="#">How it works</a>
+<a class="font-semibold hover:text-primary transition-colors" href="#">Services</a>
+<a class="font-semibold hover:text-primary transition-colors" href="#">Pricing</a>
+<button class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-slate-800 transition-all dark:bg-primary dark:text-navy">Login</button>
+</nav>
+<button class="md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto">
+<!-- Hero Section -->
+<section class="px-4 py-12 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 bg-primary/20 text-navy px-4 py-1 rounded-full w-fit font-bold text-sm">
+<span class="material-symbols-outlined text-sm">verified</span>
+                    Trusted by 10,000+ South Africans
+                </div>
+<h1 class="text-5xl md:text-7xl font-black leading-tight text-navy dark:text-slate-100">
+                    Skip the Queue.<br/><span class="text-primary">Send a Runner.</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-md">
+                    Don't waste your day at Home Affairs or the DLTC. Book a professional runner to stand in line for you.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-navy font-black px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                        Book a Runner Now
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border-2 border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+                        View Pricing
+                    </button>
+</div>
+</div>
+<div class="relative">
+<div class="w-full aspect-square bg-slate-200 rounded-3xl overflow-hidden shadow-2xl" data-alt="Modern busy office building exterior with people walking" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBuYDi01qL6E3bxmJQ9TpRJtCbxrkIqkjGo3fSqIAvO9g24MdZDP6-pQ0_EIeDtC2cdZFSZApesPMGeyuTypE5VqxVHX1exZVa3s_bbKitEZlwntjZzUYiec5m1i6DuAKEapLmU14T_z65sajGK_loP2UcsI-z-GEhSNst7J9FXhY920G1YVRW9KJGjEKHKTZzq4hrQULI8eXIkZhMmhFzLzWtfOg-O83TXHQt0vS9mp31EvvMoLIYct4UQX9tfxGLsUHeqU7kzgkg'); background-size: cover; background-position: center;">
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white dark:bg-navy p-6 rounded-2xl shadow-xl flex gap-4 items-center">
+<div class="size-12 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-navy">person_pin_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-500 uppercase">Live Tracking</p>
+<p class="font-black text-navy dark:text-white">Runner at Home Affairs</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Signals -->
+<section class="px-4 py-8 border-y border-slate-200 dark:border-slate-800">
+<div class="flex flex-wrap justify-center gap-8 md:gap-16">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+<div>
+<p class="font-bold text-navy dark:text-slate-100 uppercase text-xs tracking-widest">Verified</p>
+<p class="text-sm text-slate-500">500+ Active Runners</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">security</span>
+<div>
+<p class="font-bold text-navy dark:text-slate-100 uppercase text-xs tracking-widest">Safe &amp; Insured</p>
+<p class="text-sm text-slate-500">100% Protection</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">stars</span>
+<div>
+<p class="font-bold text-navy dark:text-slate-100 uppercase text-xs tracking-widest">Rated 4.9/5</p>
+<p class="text-sm text-slate-500">Customer Satisfaction</p>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works -->
+<section class="px-4 py-20">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-black text-navy dark:text-slate-100 mb-4">How It Works</h2>
+<p class="text-slate-500 max-w-lg mx-auto italic">Getting your time back is just three steps away.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 text-center flex flex-col items-center">
+<div class="size-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-navy dark:text-primary text-3xl">list_alt</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Choose Queue</h3>
+<p class="text-slate-500">Select the government department and branch you need to visit.</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 text-center flex flex-col items-center">
+<div class="size-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-navy dark:text-primary text-3xl">person_search</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Book Runner</h3>
+<p class="text-slate-500">Secure a professional runner who will start your queue for you.</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 text-center flex flex-col items-center">
+<div class="size-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-navy dark:text-primary text-3xl">near_me</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Track &amp; Meet</h3>
+<p class="text-slate-500">Track your runner's position live and swap places when they reach the front.</p>
+</div>
+</div>
+</section>
+<!-- Queue Categories -->
+<section class="px-4 py-20 bg-navy rounded-3xl mx-4 mb-20 text-white">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-black mb-4">What Queues We Cover</h2>
+<p class="text-slate-400">Available at all major branches across South Africa</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+<div class="p-6 bg-slate-800/50 rounded-2xl hover:bg-primary transition-all group flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary group-hover:text-navy">badge</span>
+<p class="font-bold group-hover:text-navy">Home Affairs</p>
+</div>
+<div class="p-6 bg-slate-800/50 rounded-2xl hover:bg-primary transition-all group flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary group-hover:text-navy">directions_car</span>
+<p class="font-bold group-hover:text-navy">Licensing / DLTC</p>
+</div>
+<div class="p-6 bg-slate-800/50 rounded-2xl hover:bg-primary transition-all group flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary group-hover:text-navy">local_hospital</span>
+<p class="font-bold group-hover:text-navy">Clinic &amp; Health</p>
+</div>
+<div class="p-6 bg-slate-800/50 rounded-2xl hover:bg-primary transition-all group flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary group-hover:text-navy">account_balance</span>
+<p class="font-bold group-hover:text-navy">Municipal Services</p>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="px-4 py-20">
+<h2 class="text-4xl font-black text-center mb-16">What our clients say</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-background-light dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-lg italic text-slate-700 dark:text-slate-300 mb-6">"SkipQ saved my entire Friday. I didn't have to take leave for my passport renewal. My runner Sipho was great!"</p>
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-slate-300" data-alt="Portrait of a smiling woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtVgRdcFxUXDZCeOKcoTgad5C9AUZHSlq7COTIHPhQ5778Xahp2uUQ8KN2f4m7iflJi2m3opy9jUgiB2mREPbIO_osAXDUGq59q76Q3Gzces3zPzGGQmc4mLmqbvIoVexMkWAZrrVC1qyk25EvuwpDEonWmickHNN2-KrIdGJv0UzmtYbagvaDEkbMK6T0GbCEYspw2sgO_S8kkl_UK7T6GV8k5bA5e2XAsC0iZY3m3IFRzMmmlalDH6MStei8NAl_-I-CqFzh0LM')"></div>
+<div>
+<p class="font-bold">Lerato M.</p>
+<p class="text-xs text-slate-500">Johannesburg</p>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-lg italic text-slate-700 dark:text-slate-300 mb-6">"Highly professional service. The tracking feature is a game changer. I only arrived at the DLTC when I was next."</p>
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-slate-300" data-alt="Portrait of a professional man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAC2M04Ug4gketND2Bsr-2zrsf1h_vJcdr-S5u9dLhxGCaS43lhLeBBfwVahGMWKwGZiRwMj4tsJ2yItODJP5XR_D9-Mvic7344t8rAwkdvysT_MXmhKDy3DQNUTxiCciiArOnqHVb_lD9zCVwF2V_LDVKqLqSHKmf8LtSu-irK0SUJLBRBVtbtOUHtpe6Z5hGTyvvKJW06O9JbYJbaJlUA66mEhkOCMzYKK6TdjJ-pvxxlDZGNxYj30mabv0BD7WiXzRGMfV9ToFw')"></div>
+<div>
+<p class="font-bold">Johan D.</p>
+<p class="text-xs text-slate-500">Cape Town</p>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-lg italic text-slate-700 dark:text-slate-300 mb-6">"As a busy mom, this service is a lifesaver. No more standing in the heat with a toddler. Thank you SkipQ!"</p>
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-slate-300" data-alt="Portrait of a young woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWfQU1F9MP-rUrFl06ySqb-zObgbwzVyB_DgF0hMYYsweWDZDQfl8O0fayULEo4otk7Ut8TJGvHs-H8o0HIZ4Jcy9JEYG2B4aiE1g312Wb4QuKXNj5dyWWuXgjgDDpzwWx2zNVTtuThtsp8-woi3JUoWH3ulauZ-TEFfNtF3xcMAgDqWAg016KVINlIzX26xMiuqApNIsHJ_FwPQYUvdYFCHKHeK6MlWJ-uSWNHTD1y158k3pE4D_ie4Vycth0_ZB3TYc7i8yw0Vw')"></div>
+<div>
+<p class="font-bold">Sarah S.</p>
+<p class="text-xs text-slate-500">Durban</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-navy border-t border-slate-200 dark:border-slate-800 pt-20 pb-10">
+<div class="max-w-[1280px] mx-auto px-4 grid md:grid-cols-4 gap-12 mb-20">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1 rounded-lg">
+<span class="material-symbols-outlined text-navy">timer</span>
+</div>
+<h2 class="text-2xl font-black text-navy dark:text-primary">SkipQ</h2>
+</div>
+<p class="text-slate-500">Making government services accessible and stress-free for all South Africans.</p>
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">public</span>
+</div>
+<div class="size-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">mail</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-black text-navy dark:text-white mb-6">Company</h3>
+<ul class="flex flex-col gap-4 text-slate-500">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Become a Runner</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-black text-navy dark:text-white mb-6">Support</h3>
+<ul class="flex flex-col gap-4 text-slate-500">
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Safety Guidelines</a></li>
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-black text-navy dark:text-white mb-6">Download Our App</h3>
+<div class="flex flex-col gap-4">
+<div class="bg-black text-white px-4 py-2 rounded-xl border border-slate-700 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined text-3xl">phone_iphone</span>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400">Download on the</p>
+<p class="font-bold leading-tight">App Store</p>
+</div>
+</div>
+<div class="bg-black text-white px-4 py-2 rounded-xl border border-slate-700 flex items-center gap-3 cursor-pointer">
+<span class="material-symbols-outlined text-3xl">play_store_installed</span>
+<div>
+<p class="text-[10px] uppercase font-bold text-slate-400">Get it on</p>
+<p class="font-bold leading-tight">Google Play</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto px-4 text-center text-slate-500 text-sm border-t border-slate-100 dark:border-slate-800 pt-8">
+            © 2024 SkipQ South Africa. All rights reserved.
+        </div>
+</footer>
+<!-- Mobile Bottom Nav -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-navy border-t border-slate-200 dark:border-slate-800 px-6 py-2 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined font-fill">home</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-bold">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</div>
+</body></html>

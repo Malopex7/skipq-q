@@ -1,0 +1,159 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f0fbd",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101022",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<title>Select Home Affairs Branch</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<!-- Mobile Screen Wrapper (iOS Style) -->
+<div class="relative mx-auto min-h-screen max-w-[430px] bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden flex flex-col">
+<!-- Header Section -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 pt-12 pb-4">
+<div class="flex items-center justify-between mb-4">
+<button class="flex items-center justify-center p-2 rounded-full hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back_ios</span>
+</button>
+<h1 class="text-lg font-bold flex-1 text-center pr-8">Choose a branch</h1>
+</div>
+<div class="space-y-4">
+<div class="text-sm font-medium text-primary dark:text-primary/80">Home Affairs</div>
+<!-- Search Input -->
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-800 border-none rounded-xl text-sm shadow-sm focus:ring-2 focus:ring-primary focus:outline-none transition-all placeholder:text-slate-400" placeholder="Search for a branch..." type="text"/>
+</div>
+<!-- GPS Location Button -->
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-primary text-white rounded-xl font-semibold shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">near_me</span>
+<span>Use my location</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area (Scrollable) -->
+<main class="flex-1 overflow-y-auto px-4 pb-24 space-y-4">
+<!-- Branch Card 1: High Wait -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
+                            High - 4h+ Wait
+                        </span>
+<h3 class="text-base font-bold text-slate-900 dark:text-slate-100">Randburg Home Affairs</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Gauteng • 4.2 km away</p>
+</div>
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-slate-100 dark:border-slate-700">
+<img class="w-full h-full object-cover" data-alt="Satellite map view of Randburg area" data-location="Randburg, South Africa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkkH2brV2RtAWXk12BInusMjV1G1mwTvUdz8BLIn-15vOn2lxKnfPYNumBG3qp1D2Sn_3l6jwbzUtIdehzuy0-ElnVF8UA_QZrr-thIHbmsyAHd7DQo0NrjeubDxt5TaMoIqhQHjfFPqQEtdby4qQeq__mE2At8TdzNcrQGOfID5FMUfH8ObXt083fCM-Ki7CMa66Fkhobi04RO7XtXXCaTrNlpnKoRtY9ELZdFiEEIucomrZKZ8BxAFwU5SxUos8G3mUgIjUUuGU"/>
+</div>
+</div>
+<button class="w-full py-2.5 bg-background-light dark:bg-slate-700 text-primary dark:text-slate-100 font-bold rounded-lg hover:bg-primary/10 transition-colors">
+                    Select Branch
+                </button>
+</div>
+<!-- Branch Card 2: Moderate Wait -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400">
+                            Moderate - 2h Wait
+                        </span>
+<h3 class="text-base font-bold text-slate-900 dark:text-slate-100">Sandton Office</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Gauteng • 8.7 km away</p>
+</div>
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-slate-100 dark:border-slate-700">
+<img class="w-full h-full object-cover" data-alt="Satellite map view of Sandton district" data-location="Sandton, South Africa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCzXR73uJpswU0pQV6cVLLrR6o3I2mGYQb6KmEKHAtQcoFLS0hvKcdT2We9akN6tHq0SEIAVDjC2Pr5-6kyoqVDEuANKXFA8YeRlu6SOdQibhcmkK082KOJ3mNUg74pwmd9GRRyzumuPG3GnHWH_PFSGoZzyZdWyAjBunYN_CpPO5-ckwrkR1DKV5MsG6Gr-Il-pcQ3BrrHEr6oPEarSyKPPhrLJptnCO6_bPtB8ZqKzGP3ohDXc6aqK8uRhqQA70_zrDEaCroo3M"/>
+</div>
+</div>
+<button class="w-full py-2.5 bg-background-light dark:bg-slate-700 text-primary dark:text-slate-100 font-bold rounded-lg hover:bg-primary/10 transition-colors">
+                    Select Branch
+                </button>
+</div>
+<!-- Branch Card 3: Low Wait -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                            Low - 45m Wait
+                        </span>
+<h3 class="text-base font-bold text-slate-900 dark:text-slate-100">Akasia Home Affairs</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Pretoria • 15.1 km away</p>
+</div>
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-slate-100 dark:border-slate-700">
+<img class="w-full h-full object-cover" data-alt="Satellite map view of Akasia suburb" data-location="Akasia, South Africa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWfZ_TDkD7V-ah14dofnVAqrmt4WuMOEOcUHXY-8ttCpBs8BlWanTG16yDW_1XaOYhb3uMbGvyr1rG5AHQ4UHg2V9PE6nOR5asnQUXGCLIt1TJ3xl4t68T-5AiWiwf5ZUQGTu9To4k28Ypc_E5_LwK4aPW4DaoHOyF1_x1y9sSqrwnvsMJfOdf9rjFKhOOSWZzNdtEG8N8D8S3HrOj1_qcsPADTx9GrVgcFgEX_IYwUyf9ry3xqR6oFgeNAP1ytMfvjMucDXng7eQ"/>
+</div>
+</div>
+<button class="w-full py-2.5 bg-background-light dark:bg-slate-700 text-primary dark:text-slate-100 font-bold rounded-lg hover:bg-primary/10 transition-colors">
+                    Select Branch
+                </button>
+</div>
+<!-- Branch Card 4: Moderate Wait -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-100 dark:border-slate-700 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400">
+                            Moderate - 1.5h Wait
+                        </span>
+<h3 class="text-base font-bold text-slate-900 dark:text-slate-100">Soweto Branch</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Johannesburg • 19.4 km away</p>
+</div>
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-slate-100 dark:border-slate-700">
+<img class="w-full h-full object-cover" data-alt="Satellite map view of Soweto streets" data-location="Soweto, South Africa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwuMuRKbIQ4f4eqJa5QzIrD5gUBFXWLcIyiwjYWzyGTNuRnYD8j9_AEyfCzxL--nTxFZ7s4muG5kGBnzUnOblI4J4NUuAqwcm--Q5-QBR1hx5lhQPv-UuqgEjqku262kP31-o6T_2GT1fCqfTumLs1WdeiQTPyH7Z7TR_mhHjuXWqxFAfMOOiE8dd6-3rXHVp30eu9mG_BEy_pCNF75X0ROglxcRSjNj0QoP5_vjp93wUN2iWAfhw_Bjxdn_jrJHbJ7Tv3gy3iYWM"/>
+</div>
+</div>
+<button class="w-full py-2.5 bg-background-light dark:bg-slate-700 text-primary dark:text-slate-100 font-bold rounded-lg hover:bg-primary/10 transition-colors">
+                    Select Branch
+                </button>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-100 dark:border-slate-800 px-6 pb-8 pt-2">
+<div class="flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-slate-400 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined font-fill">location_on</span>
+<span class="text-[10px] font-medium">Branches</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-medium">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</div>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-300 dark:bg-slate-700 rounded-full z-20"></div>
+</div>
+</body></html>
