@@ -28,6 +28,7 @@
 - `jobs/[id]/chat/page.tsx` (C8 Chat with Runner)
 - `dashboard/page.tsx` (C9 Client Dashboard)
 - `jobs/[id]/receipt/page.tsx` (C10 Job Completion Receipt)
+- `(runner)/onboard/page.tsx` (R1 Runner Onboarding)
 
 ## Sections
 - `ServiceCategoryGrid`
@@ -37,6 +38,7 @@
 - `QueueProgressTracker`
 - `ChatThread`
 - `RecentJobsList`
+- `RunnerInputForm`
 
 ## UI Primitives
 - `CategoryCard`
@@ -59,3 +61,4 @@
 - `CompletionHeader`
 - `ReceiptSummaryCard`
 - `RunnerRating`
+- `OnboardingProgress`

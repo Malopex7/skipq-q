@@ -368,7 +368,7 @@ Style: clean, celebratory but minimal, navy accent, rounded card, mobile.
 
 ## Runner App Screens
 
-### R1. Runner Onboarding
+### [x] R1. Runner Onboarding
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_FLASH

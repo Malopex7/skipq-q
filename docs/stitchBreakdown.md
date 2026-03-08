@@ -290,3 +290,35 @@
 - Main Title: `text-3xl font-extrabold text-foreground`
 - Cost Text: `text-xl font-bold text-primary`
 - Labels: `text-sm font-medium text-muted-foreground`
+
+---
+
+# Screen: R1 Runner Onboarding
+
+## Layout
+- Mobile-first, vertical form flow
+- Header area: "Back to Login" text link, Top progress bar indicating 5 steps
+- Title: "Personal Details"
+- Form section: Vertical stack of inputs (Full Name, Phone Number, ID Number)
+- Bottom sticky area: Large primary Next button
+
+## Components
+- `OnboardingProgress`
+- `RunnerInputForm`
+- `OnboardingLayout`
+
+## Spacing
+- Global padding: `px-6 py-8`
+- Input gap: `gap-6`
+- Form container: `mt-10 mb-24`
+
+## Surface
+- Background: `bg-slate-50`
+- Inputs: `bg-white`, `rounded-xl`, `border-slate-200`
+- Active Progress: `bg-primary`
+- Inactive Progress: `bg-slate-200`
+
+## Typography
+- Step Title: `text-2xl font-bold text-foreground`
+- Input Labels: `text-sm font-semibold text-slate-700`
+- Input Text: `text-base`
