@@ -2,15 +2,57 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Eye, EyeOff } from "lucide-react"
+import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RoleToggle } from "./RoleToggle"
+import { api } from "@/lib/api"
+import { setToken } from "@/lib/auth"
+import { useRouter } from "next/navigation"
 
 export function RegisterForm() {
+    const router = useRouter()
     const [showPassword, setShowPassword] = useState(false)
-    const [, setRole] = useState("client")
+    const [role, setRole] = useState("client")
+    const [form, setForm] = useState({ firstName: "", lastName: "", email: "", password: "" })
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState<string | null>(null)
+    const [success, setSuccess] = useState<string | null>(null)
+
+    const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) =>
+        setForm(prev => ({ ...prev, [field]: e.target.value }))
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setError(null)
+        setSuccess(null)
+        setLoading(true)
+
+        try {
+            const res = await api.post<{ token?: string; message?: string }>(
+                "/api/auth/register",
+                {
+                    name: `${form.firstName} ${form.lastName}`.trim(),
+                    email: form.email,
+                    password: form.password,
+                    role,
+                }
+            )
+
+            if (res.token) {
+                setToken(res.token)
+                router.push(role === "runner" ? "/onboard" : "/dashboard")
+            } else {
+                // Email confirmation flow — just show the message
+                setSuccess(res.message ?? "Registration successful! Check your email.")
+            }
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "Registration failed. Please try again.")
+        } finally {
+            setLoading(false)
+        }
+    }
 
     return (
         <div className="w-full bg-background p-6 rounded-2xl shadow-sm border space-y-6">
@@ -21,21 +63,55 @@ export function RegisterForm() {
 
             <RoleToggle defaultValue="client" onValueChange={setRole} />
 
-            <form className="space-y-4">
+            {error && (
+                <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl px-4 py-3">
+                    {error}
+                </div>
+            )}
+
+            {success && (
+                <div className="bg-green-50 border border-green-200 text-green-700 text-sm rounded-xl px-4 py-3">
+                    {success}
+                </div>
+            )}
+
+            <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                         <Label htmlFor="firstName">First name</Label>
-                        <Input id="firstName" placeholder="John" className="rounded-xl" required />
+                        <Input
+                            id="firstName"
+                            placeholder="John"
+                            className="rounded-xl"
+                            required
+                            value={form.firstName}
+                            onChange={set("firstName")}
+                        />
                     </div>
                     <div className="space-y-2">
                         <Label htmlFor="lastName">Last name</Label>
-                        <Input id="lastName" placeholder="Doe" className="rounded-xl" required />
+                        <Input
+                            id="lastName"
+                            placeholder="Doe"
+                            className="rounded-xl"
+                            required
+                            value={form.lastName}
+                            onChange={set("lastName")}
+                        />
                     </div>
                 </div>
 
                 <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="name@example.com" className="rounded-xl" required />
+                    <Input
+                        id="email"
+                        type="email"
+                        placeholder="name@example.com"
+                        className="rounded-xl"
+                        required
+                        value={form.email}
+                        onChange={set("email")}
+                    />
                 </div>
 
                 <div className="space-y-2">
@@ -46,6 +122,8 @@ export function RegisterForm() {
                             type={showPassword ? "text" : "password"}
                             className="rounded-xl pr-10"
                             required
+                            value={form.password}
+                            onChange={set("password")}
                         />
                         <button
                             type="button"
@@ -57,8 +135,12 @@ export function RegisterForm() {
                     </div>
                 </div>
 
-                <Button type="submit" className="w-full text-base h-12 rounded-xl mt-6">
-                    Create Account
+                <Button type="submit" className="w-full text-base h-12 rounded-xl mt-6" disabled={loading}>
+                    {loading ? (
+                        <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Creating account...</>
+                    ) : (
+                        "Create Account"
+                    )}
                 </Button>
             </form>
 

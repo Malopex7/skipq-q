@@ -5,6 +5,7 @@ import { Search, Navigation } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { BranchCard } from "./BranchCard"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 type Urgency = "low" | "moderate" | "high"
 
@@ -15,7 +16,8 @@ const MOCK_BRANCHES = [
     { id: "4", name: "Johannesburg Central", area: "Gauteng", distance: "15 km away", waitTime: "High - 5h+", urgency: "high" as Urgency },
 ]
 
-export function BranchList() {
+export function BranchList({ serviceId }: { serviceId: string }) {
+    const router = useRouter()
     const [searchQuery, setSearchQuery] = useState("")
 
     const filteredBranches = MOCK_BRANCHES.filter(branch =>
@@ -23,9 +25,9 @@ export function BranchList() {
         branch.area.toLowerCase().includes(searchQuery.toLowerCase())
     )
 
-    const handleSelect = (id: string) => {
-        // Navigate to C5 Booking Detail screen later
-        console.log("Selected branch", id)
+    const handleSelect = (branchName: string) => {
+        // Navigate to C5 Booking Detail screen
+        router.push(`/book/details?service=${serviceId}&branch=${encodeURIComponent(branchName)}`)
     }
 
     return (
@@ -65,7 +67,7 @@ export function BranchList() {
                         distance={branch.distance}
                         waitTime={branch.waitTime}
                         urgency={branch.urgency}
-                        onSelect={() => handleSelect(branch.id)}
+                        onSelect={() => handleSelect(branch.name)}
                     />
                 ))}
 

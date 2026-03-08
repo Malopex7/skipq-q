@@ -3,6 +3,8 @@
 import { useState } from "react"
 import { TimeSlotPicker } from "./TimeSlotPicker"
 import { Button } from "@/components/ui/button"
+import { api } from "@/lib/api"
+import { useRouter } from "next/navigation"
 
 // Minimal Select UI mock since we lack complex shadcn selects currently installed
 function NativeSelect({ label, options }: { label: string, options: string[] }) {
@@ -19,8 +21,50 @@ function NativeSelect({ label, options }: { label: string, options: string[] }) 
     )
 }
 
-export function BookingForm() {
+interface BookingFormProps {
+    serviceName: string
+    branchName: string
+}
+
+export function BookingForm({ serviceName, branchName }: BookingFormProps) {
+    const router = useRouter()
     const [selectedSlot, setSelectedSlot] = useState<string | null>(null)
+    const [submitting, setSubmitting] = useState(false)
+
+    const handleSubmit = async () => {
+        if (!selectedSlot) return alert("Please select a time slot")
+
+        try {
+            setSubmitting(true)
+
+            // Just picking today for mock dates, adapting slot
+            const date = new Date()
+            const [time, modifier] = selectedSlot.split(' ')
+            let hours = time.split(':')[0]
+            const minutes = time.split(':')[1]
+            if (hours === '12') hours = '00'
+            if (modifier === 'PM') hours = (parseInt(hours, 10) + 12).toString()
+
+            date.setHours(parseInt(hours, 10))
+            date.setMinutes(parseInt(minutes, 10))
+            date.setSeconds(0)
+
+            const res = await api.post<{ _id: string }>("/api/jobs", {
+                serviceType: serviceName, // Since backend expects string for now
+                branchName,
+                address: branchName, // Temp fallback since branch has no address string yet
+                scheduledTime: date.toISOString(),
+                payAmount: 150 // Standard fallback mock price, in future fetch properly or calculate
+            })
+
+            router.push(`/jobs/${res._id}/tracker`) // Fixed router slug
+
+        } catch (err) {
+            console.error(err)
+            alert("Failed to create booking")
+            setSubmitting(false)
+        }
+    }
 
     return (
         <div className="flex flex-col gap-8 w-full">
@@ -61,8 +105,13 @@ export function BookingForm() {
                     <span className="text-sm font-semibold text-muted-foreground">Estimated Total</span>
                     <span className="text-2xl font-bold text-primary">R 150.00</span>
                 </div>
-                <Button size="lg" className="w-full h-14 text-base font-semibold shadow-md active:scale-[0.98] transition-transform">
-                    Confirm & Find Runner
+                <Button
+                    onClick={handleSubmit}
+                    disabled={submitting || !selectedSlot}
+                    size="lg"
+                    className="w-full h-14 text-base font-semibold shadow-md active:scale-[0.98] transition-transform"
+                >
+                    {submitting ? "Confirming..." : "Confirm & Find Runner"}
                 </Button>
             </div>
         </div>

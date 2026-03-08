@@ -1,10 +1,77 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { JobDetailCard } from "@/components/runner/JobDetailCard"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { useParams, useRouter } from "next/navigation"
+import { api } from "@/lib/api"
+import { Loader2 } from "lucide-react"
+
+interface Job {
+    _id: string
+    serviceType: string
+    branchName: string
+    address: string
+    scheduledTime: string
+    payAmount: number
+    instructions?: string
+    status: string
+}
 
 export default function RunnerJobDetailPage() {
+    const params = useParams()
+    const router = useRouter()
+    const jobId = params.id as string
+
+    const [job, setJob] = useState<Job | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [accepting, setAccepting] = useState(false)
+
+    useEffect(() => {
+        if (!jobId) return
+        api.get<Job>(`/api/jobs/${jobId}`)
+            .then(setJob)
+            .catch(console.error)
+            .finally(() => setLoading(false))
+    }, [jobId])
+
+    const handleAccept = async () => {
+        try {
+            setAccepting(true)
+            await api.post(`/api/jobs/${jobId}/accept`, {})
+            router.push(`/jobs/${jobId}/active`)
+        } catch (err) {
+            console.error(err)
+            alert("Failed to accept job. It may no longer be available.")
+            setAccepting(false)
+            router.push("/jobs")
+        }
+    }
+
+    if (loading) {
+        return <div className="min-h-[100dvh] flex items-center justify-center"><Loader2 className="h-8 w-8 animate-spin text-primary" /></div>
+    }
+
+    if (!job) {
+        return <div className="min-h-[100dvh] flex flex-col items-center justify-center p-6 gap-4"><p>Job not found</p><Button asChild><Link href="/jobs">Back to Jobs</Link></Button></div>
+    }
+
+    // Format date string safely without date-fns
+    let formattedDate = "Today"
+    try {
+        if (job.scheduledTime) {
+            const date = new Date(job.scheduledTime)
+            formattedDate = date.toLocaleString('en-US', {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+            })
+        }
+    } catch { }
+
     return (
         <div className="flex justify-center bg-slate-100 min-h-[100dvh]">
             <div className="w-full max-w-md bg-slate-50 border-x min-h-[100dvh] flex flex-col relative">
@@ -34,28 +101,44 @@ export default function RunnerJobDetailPage() {
 
                 <main className="flex-1 px-4 -mt-8 relative z-10 w-full mb-8">
                     <JobDetailCard
-                        serviceName="Smart ID & Passport"
-                        branchName="Randburg Home Affairs"
-                        address="110 Malibongwe Dr, Randburg, 2194"
-                        scheduledTime="Today, 08:30 AM"
-                        duration="3h 15m"
-                        documentsNeeded="Client Application Form PDF"
-                        instructions="Please bring a portable charger, the queue is outside and quite long today."
-                        payAmount="R 160.00"
+                        serviceName={job.serviceType}
+                        branchName={job.branchName}
+                        address={job.address || job.branchName}
+                        scheduledTime={formattedDate}
+                        duration="2-3 Hours"
+                        documentsNeeded="Standard Client ID docs"
+                        instructions={job.instructions || "Please ensure you arrive on time."}
+                        payAmount={`R ${job.payAmount.toFixed(2)}`}
                     />
                 </main>
 
                 {/* Action Footer */}
-                <div className="fixed bottom-0 left-0 right-0 p-6 bg-white/95 backdrop-blur-sm border-t shadow-[0_-10px_30px_rgba(0,0,0,0.03)] z-50">
-                    <div className="max-w-md mx-auto flex flex-col items-center gap-4">
-                        <Button className="w-full h-14 text-lg font-bold rounded-xl shadow-lg shadow-[#80f20d]/20 bg-[#80f20d] hover:bg-[#72db0c] text-slate-900 transition-transform active:scale-95">
-                            Accept Job
-                        </Button>
-                        <Link href="/jobs" className="text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors">
-                            Decline & Go Back
-                        </Link>
+                {job.status === "pending" ? (
+                    <div className="fixed bottom-0 left-0 right-0 p-6 bg-white/95 backdrop-blur-sm border-t shadow-[0_-10px_30px_rgba(0,0,0,0.03)] z-50">
+                        <div className="max-w-md mx-auto flex flex-col items-center gap-4">
+                            <Button
+                                onClick={handleAccept}
+                                disabled={accepting}
+                                className="w-full h-14 text-lg font-bold rounded-xl shadow-lg shadow-[#80f20d]/20 bg-[#80f20d] hover:bg-[#72db0c] text-slate-900 transition-transform active:scale-95">
+                                {accepting ? <Loader2 className="h-5 w-5 animate-spin" /> : "Accept Job"}
+                            </Button>
+                            <Link href="/jobs" className="text-sm font-bold text-slate-400 hover:text-slate-600 transition-colors">
+                                Decline & Go Back
+                            </Link>
+                        </div>
                     </div>
-                </div>
+                ) : (
+                    <div className="fixed bottom-0 left-0 right-0 p-6 bg-white/95 backdrop-blur-sm border-t shadow-[0_-10px_30px_rgba(0,0,0,0.03)] z-50">
+                        <div className="max-w-md mx-auto flex flex-col items-center gap-4">
+                            <div className="w-full text-center p-3 text-sm font-semibold text-slate-500 bg-slate-100 rounded-xl">
+                                This job is no longer available.
+                            </div>
+                            <Button variant="outline" asChild className="w-full h-14">
+                                <Link href="/jobs">Return to Jobs</Link>
+                            </Button>
+                        </div>
+                    </div>
+                )}
 
             </div>
         </div>

@@ -1,38 +1,44 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { CategoryCard } from "./CategoryCard"
-import {
-    Building2,
-    Car,
-    Stethoscope,
-    Landmark,
-    ShoppingCart,
-    LandPlot,
-    CreditCard,
-    Mail
-} from "lucide-react"
+import { api } from "@/lib/api"
+import { useRouter } from "next/navigation"
 
-const CATEGORIES = [
-    { id: "home-affairs", name: "Home Affairs", icon: Building2, waitTime: "3-8 hours" },
-    { id: "traffic", name: "Traffic/Licensing", icon: Car, waitTime: "2-6 hours" },
-    { id: "clinic", name: "Clinic/Hospital", icon: Stethoscope, waitTime: "4-10 hours" },
-    { id: "bank", name: "Bank", icon: Landmark, waitTime: "1-3 hours" },
-    { id: "grocery", name: "Grocery Shopping", icon: ShoppingCart, waitTime: "30m-2h" },
-    { id: "municipal", name: "Municipal Office", icon: LandPlot, waitTime: "2-4 hours" },
-    { id: "sassa", name: "SASSA", icon: CreditCard, waitTime: "4-8 hours" },
-    { id: "post-office", name: "Post Office", icon: Mail, waitTime: "1-2 hours" },
-]
+interface ServiceCategory {
+    _id: string
+    name: string
+    icon: string
+    basePrice: number
+    isActive: boolean
+}
 
 export function ServiceCategoryGrid() {
+    const router = useRouter()
     const [searchQuery, setSearchQuery] = useState("")
     const [selectedId, setSelectedId] = useState<string | null>(null)
+    const [categories, setCategories] = useState<ServiceCategory[]>([])
+    const [loading, setLoading] = useState(true)
 
-    const filteredCategories = CATEGORIES.filter(cat =>
+    useEffect(() => {
+        api.get<ServiceCategory[]>("/api/services")
+            .then(data => setCategories(data.filter(c => c.isActive)))
+            .catch(console.error)
+            .finally(() => setLoading(false))
+    }, [])
+
+    const filteredCategories = categories.filter(cat =>
         cat.name.toLowerCase().includes(searchQuery.toLowerCase())
     )
+
+    const handleContinue = () => {
+        if (selectedId) {
+            // Pass the service ID in the URL to the next step
+            router.push(`/book/location?service=${selectedId}`)
+        }
+    }
 
     return (
         <div className="w-full flex flex-col gap-6">
@@ -52,22 +58,31 @@ export function ServiceCategoryGrid() {
 
             {/* Grid */}
             <div className="grid grid-cols-2 gap-4">
-                {filteredCategories.map((category) => (
-                    <CategoryCard
-                        key={category.id}
-                        name={category.name}
-                        icon={category.icon}
-                        waitTime={category.waitTime}
-                        isSelected={selectedId === category.id}
-                        onClick={() => setSelectedId(category.id)}
-                    />
-                ))}
+                {loading
+                    ? [...Array(6)].map((_, i) => (
+                        <div key={i} className="bg-white rounded-2xl p-4 border border-slate-100 flex flex-col items-center gap-3 animate-pulse h-32">
+                            <div className="h-10 w-10 bg-slate-100 rounded-xl" />
+                            <div className="h-4 w-24 bg-slate-100 rounded" />
+                        </div>
+                    ))
+                    : filteredCategories.map((category) => (
+                        <CategoryCard
+                            key={category._id}
+                            name={category.name}
+                            icon={category.icon}
+                            waitTime={`Starts at R${category.basePrice}`}
+                            isSelected={selectedId === category._id}
+                            onClick={() => setSelectedId(category._id)}
+                        />
+                    ))
+                }
             </div>
 
-            {/* Mock Next Action */}
+            {/* Continue Action */}
             <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-background/0 pointer-events-none">
                 <button
                     disabled={!selectedId}
+                    onClick={handleContinue}
                     className="w-full h-14 bg-primary text-primary-foreground font-semibold rounded-xl mt-4 pointer-events-auto shadow-lg disabled:opacity-50 transition-opacity"
                 >
                     Continue

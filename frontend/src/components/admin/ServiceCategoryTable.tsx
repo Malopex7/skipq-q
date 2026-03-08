@@ -1,25 +1,40 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
+import { useEffect, useState } from "react"
 import { Pencil } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { api } from "@/lib/api"
 
-const SERVICES = [
-    { id: "s1", icon: "🏛️", name: "Home Affairs", basePrice: "R 85.00", ratePerMin: "R 0.50", active: true },
-    { id: "s2", icon: "🚗", name: "Vehicle Licensing", basePrice: "R 95.00", ratePerMin: "R 0.60", active: true },
-    { id: "s3", icon: "❤️", name: "Clinic / Hospital", basePrice: "R 70.00", ratePerMin: "R 0.45", active: true },
-    { id: "s4", icon: "⚖️", name: "SARS / Tax Office", basePrice: "R 100.00", ratePerMin: "R 0.65", active: false },
-    { id: "s5", icon: "📄", name: "Bank Queue", basePrice: "R 60.00", ratePerMin: "R 0.40", active: true },
-]
+interface Service {
+    _id: string
+    icon: string
+    name: string
+    basePrice: number
+    ratePerMin: number
+    isActive: boolean
+}
 
-export function ServiceCategoryTable({ onAdd }: { onAdd: () => void }) {
-    const [services, setServices] = useState(SERVICES)
+export function ServiceCategoryTable({ onAdd, refreshNonce }: { onAdd: () => void, refreshNonce?: number }) {
+    const [services, setServices] = useState<Service[]>([])
+    const [loading, setLoading] = useState(true)
 
-    const toggle = (id: string) => {
-        setServices(prev => prev.map(s => s.id === id ? { ...s, active: !s.active } : s))
+    const fetchServices = () => {
+        setLoading(true)
+        api.get<Service[]>("/api/services")
+            .then(setServices)
+            .catch(() => setServices([]))
+            .finally(() => setLoading(false))
+    }
+
+    useEffect(() => { fetchServices() }, [refreshNonce])
+
+    const toggle = async (id: string) => {
+        await api.patch(`/api/services/${id}/toggle`)
+        fetchServices()
     }
 
     return (
+
         <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
             <div className="px-6 py-5 border-b border-slate-200 flex justify-between items-center">
                 <div>
@@ -42,32 +57,36 @@ export function ServiceCategoryTable({ onAdd }: { onAdd: () => void }) {
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100">
-                        {services.map((svc, i) => (
-                            <tr key={svc.id} className={i % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
-                                <td className="px-6 py-4 whitespace-nowrap">
-                                    <div className="flex items-center gap-3">
-                                        <span className="text-2xl">{svc.icon}</span>
-                                        <span className="text-sm font-semibold text-slate-900">{svc.name}</span>
-                                    </div>
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-700">{svc.basePrice}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-700">{svc.ratePerMin}</td>
-                                <td className="px-6 py-4 whitespace-nowrap">
-                                    <button
-                                        onClick={() => toggle(svc.id)}
-                                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${svc.active ? "bg-green-500" : "bg-slate-300"}`}
-                                    >
-                                        <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow-sm transition-transform ${svc.active ? "translate-x-6" : "translate-x-1"}`} />
-                                    </button>
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-right">
-                                    <button className="flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-800 ml-auto">
-                                        <Pencil className="h-3.5 w-3.5" />
-                                        Edit
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+                        {loading
+                            ? [...Array(4)].map((_, i) => (
+                                <tr key={i}>{[...Array(5)].map((__, j) => <td key={j} className="px-6 py-4"><div className="h-4 bg-slate-100 rounded animate-pulse w-24" /></td>)}</tr>
+                            ))
+                            : services.length === 0
+                                ? <tr><td colSpan={5} className="px-6 py-10 text-center text-sm text-slate-400">No services yet — add one above</td></tr>
+                                : services.map((s, i) => (
+                                    <tr key={s._id} className={i % 2 === 0 ? "bg-white hover:bg-slate-50/40" : "bg-slate-50/50 hover:bg-slate-100/50"}>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <div className="flex items-center gap-2">
+                                                <span className="text-xl">{s.icon || "🏛️"}</span>
+                                                <span className="text-sm font-semibold text-slate-900">{s.name}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">R {s.basePrice.toFixed(2)}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">R {s.ratePerMin.toFixed(2)}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap">
+                                            <button onClick={() => toggle(s._id)}
+                                                className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${s.isActive ? "bg-lime-400" : "bg-slate-200"}`}>
+                                                <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow-sm transition-transform ${s.isActive ? "translate-x-4" : "translate-x-1"}`} />
+                                            </button>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-right">
+                                            <button className="text-slate-400 hover:text-slate-700 transition-colors">
+                                                <Pencil className="h-4 w-4" />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))
+                        }
                     </tbody>
                 </table>
             </div>

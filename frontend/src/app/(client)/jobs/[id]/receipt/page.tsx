@@ -1,12 +1,66 @@
 "use client"
 
+import { useEffect, useState } from "react"
+import { useParams } from "next/navigation"
 import { CompletionHeader } from "@/components/booking/CompletionHeader"
 import { ReceiptSummaryCard } from "@/components/booking/ReceiptSummaryCard"
 import { RunnerRating } from "@/components/booking/RunnerRating"
 import { Button } from "@/components/ui/button"
+import { Loader2 } from "lucide-react"
 import Link from "next/link"
+import { api } from "@/lib/api"
+
+interface Job {
+    _id: string
+    branchName: string
+    payAmount: number
+    createdAt: string
+    updatedAt: string
+    runnerId?: {
+        userId?: { name: string }
+    }
+}
 
 export default function ReceiptPage() {
+    const params = useParams()
+    const jobId = params.id as string
+
+    const [job, setJob] = useState<Job | null>(null)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        if (!jobId) return
+        api.get<Job>(`/api/jobs/${jobId}`)
+            .then(setJob)
+            .catch(console.error)
+            .finally(() => setLoading(false))
+    }, [jobId])
+
+    if (loading) {
+        return (
+            <div className="flex justify-center bg-white min-h-[100dvh] items-center">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+        )
+    }
+
+    if (!job) {
+        return (
+            <div className="flex justify-center bg-white min-h-[100dvh] items-center flex-col gap-4">
+                <p>Job not found</p>
+                <Button asChild><Link href="/dashboard">Back to Home</Link></Button>
+            </div>
+        )
+    }
+
+    // Naive duration calculation
+    const start = new Date(job.createdAt).getTime()
+    const end = new Date(job.updatedAt).getTime()
+    const diffMins = Math.round((end - start) / 60000)
+    const hours = Math.floor(diffMins / 60)
+    const mins = diffMins % 60
+    const durationStr = hours > 0 ? `${hours}h ${mins}m` : `${mins}mins`
+
     return (
         <div className="flex justify-center bg-white min-h-[100dvh]">
             <div className="w-full max-w-md border-x min-h-[100dvh] flex flex-col relative">
@@ -15,13 +69,13 @@ export default function ReceiptPage() {
                     <CompletionHeader />
 
                     <ReceiptSummaryCard
-                        branchName="Home Affairs - Randburg"
-                        runnerName="Sipho M."
-                        duration="3h 15m"
-                        totalCost="R 150.00"
+                        branchName={job.branchName}
+                        runnerName={job.runnerId?.userId?.name || "Runner"}
+                        duration={durationStr}
+                        totalCost={`R ${job.payAmount.toFixed(2)}`}
                     />
 
-                    <RunnerRating />
+                    <RunnerRating jobId={job._id} />
 
                     <div className="text-center mt-2 mb-8">
                         <span className="text-xs text-muted-foreground font-medium bg-slate-50 px-3 py-1.5 rounded-full border">

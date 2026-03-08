@@ -1,22 +1,21 @@
 import { StatusUpdatePanel } from "@/components/runner/StatusUpdatePanel"
 import Link from "next/link"
 import { AlertCircle } from "lucide-react"
+import { Suspense } from "react"
+import { PageHeader } from "@/components/ui/PageHeader"
 
 export default function ActiveJobPage() {
     return (
         <div className="flex justify-center bg-slate-50 min-h-[100dvh]">
             <div className="w-full max-w-md bg-slate-50 border-x min-h-[100dvh] flex flex-col relative">
 
-                {/* Header */}
-                <div className="px-6 pt-12 pb-6 flex flex-col items-center justify-center border-b border-slate-200 bg-white">
-                    <span className="text-xs font-bold text-primary uppercase tracking-widest mb-1.5 bg-primary/10 px-3 py-1 rounded-full">Active Job</span>
-                    <h1 className="text-xl font-black text-slate-900 tracking-tight">Home Affairs Queue</h1>
-                    <p className="text-sm font-semibold text-slate-500 mt-1">Client: Thabo M.</p>
-                </div>
+                <PageHeader title="Active Job" backHref="/jobs" className="bg-white" />
 
-                <main className="flex-1 px-6 flex flex-col relative z-10 w-full">
-                    <StatusUpdatePanel />
-                </main>
+                <Suspense fallback={<div className="p-6 animate-pulse bg-white flex-1" />}>
+                    <main className="flex-1 px-6 flex flex-col relative z-10 w-full mt-4">
+                        <StatusUpdatePanel />
+                    </main>
+                </Suspense>
 
                 {/* Footer Actions */}
                 <div className="fixed bottom-0 left-0 right-0 p-8 pb-10 bg-slate-50 z-50">

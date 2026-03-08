@@ -2,12 +2,13 @@ import { MapPin, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 interface ActiveJobBannerProps {
+    jobId: string;
     runnerName: string;
     branchName: string;
     status: string;
 }
 
-export function ActiveJobBanner({ runnerName, branchName, status }: ActiveJobBannerProps) {
+export function ActiveJobBanner({ jobId, runnerName, branchName, status }: ActiveJobBannerProps) {
     return (
         <div className="bg-primary rounded-3xl p-6 text-primary-foreground shadow-lg relative overflow-hidden">
             {/* Decorative background circle */}
@@ -30,7 +31,7 @@ export function ActiveJobBanner({ runnerName, branchName, status }: ActiveJobBan
                 </div>
 
                 <Link
-                    href={`/ book / tracker`}
+                    href={`/jobs/${jobId}/tracker`}
                     className="flex items-center justify-center w-full bg-[#80f20d] hover:bg-[#72db0c] text-slate-900 font-bold py-3.5 rounded-xl transition-colors shadow-sm"
                 >
                     Track Live

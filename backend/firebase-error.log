@@ -1,0 +1,7 @@
+Error: Unable to detect a Project Id in the current environment. 
+To learn more about authentication and Google APIs, visit: 
+https://cloud.google.com/docs/authentication/getting-started
+    at GoogleAuth.findAndCacheProjectId (D:\cursor-dev\skipq-q\backend\node_modules\google-auth-library\build\src\auth\googleauth.js:168:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ApplicationDefaultCredential.getProjectId (D:\cursor-dev\skipq-q\backend\node_modules\firebase-admin\lib\app\credential-internal.js:59:30)
+    at async googleAuth (file:///D:/cursor-dev/skipq-q/backend/src/controllers/authController.js:24:19)

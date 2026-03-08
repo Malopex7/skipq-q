@@ -13,6 +13,8 @@ import {
     BarChart3,
     LogOut
 } from "lucide-react"
+import { clearToken } from "@/lib/auth"
+import { useRouter } from "next/navigation"
 
 const NAV_LINKS = [
     { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -26,6 +28,12 @@ const NAV_LINKS = [
 
 export function AdminSidebar() {
     const pathname = usePathname()
+    const router = useRouter()
+
+    const handleLogout = () => {
+        clearToken()
+        window.location.href = "/login"
+    }
 
     return (
         <aside className="w-[250px] bg-slate-900 border-r border-slate-800 flex flex-col h-screen sticky top-0">
@@ -66,7 +74,10 @@ export function AdminSidebar() {
 
             {/* Logout */}
             <div className="p-4 border-t border-slate-800 shrink-0">
-                <button className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 w-full transition-colors">
+                <button
+                    onClick={handleLogout}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 w-full transition-colors"
+                >
                     <LogOut className="h-5 w-5 text-slate-500" />
                     Sign Out
                 </button>

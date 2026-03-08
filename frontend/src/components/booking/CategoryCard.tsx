@@ -1,16 +1,15 @@
 import { cn } from "@/lib/utils"
-import { LucideIcon } from "lucide-react"
 import { Check } from "lucide-react"
 
 interface CategoryCardProps {
     name: string;
-    icon: LucideIcon;
+    icon: React.ReactNode;
     waitTime: string;
     isSelected?: boolean;
     onClick?: () => void;
 }
 
-export function CategoryCard({ name, icon: Icon, waitTime, isSelected, onClick }: CategoryCardProps) {
+export function CategoryCard({ name, icon, waitTime, isSelected, onClick }: CategoryCardProps) {
     return (
         <button
             onClick={onClick}
@@ -28,10 +27,10 @@ export function CategoryCard({ name, icon: Icon, waitTime, isSelected, onClick }
             )}
 
             <div className={cn(
-                "h-12 w-12 rounded-full flex items-center justify-center mb-4 transition-colors",
-                isSelected ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+                "h-12 w-12 rounded-full flex items-center justify-center mb-4 transition-colors text-2xl",
+                isSelected ? "bg-primary" : "bg-primary/10"
             )}>
-                <Icon className="h-6 w-6" />
+                {icon}
             </div>
 
             <h3 className="font-semibold text-sm mb-1 text-foreground leading-tight">{name}</h3>
