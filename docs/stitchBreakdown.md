@@ -155,3 +155,37 @@
 - Status text: `text-lg font-bold text-primary`
 - Summary title: `text-base font-semibold text-foreground`
 - Summary details: `text-sm text-muted-foreground`
+
+---
+
+# Screen: C7 Live Queue Tracker
+
+## Layout
+- Mobile-first, vertical stack
+- Page header: "Live Tracker" or back button
+- Runner info card at top: photo, name, star rating, "Chat" action
+- Large ETA display centrally placed
+- Vertical status progress bar / steps: Accepted -> En Route -> Arrived -> Waiting -> Near Front -> Complete
+- Step active state highlighted with lime green icon and bold label
+- Auxiliary actions: "Update Instructions" button at bottom
+
+## Components
+- `RunnerProfileCard`
+- `EtaDisplay`
+- `QueueProgressTracker`
+  - `ProgressStepItem`
+- `TrackerActions`
+
+## Spacing
+- Global padding: `p-6`
+- Card padding: `p-5`
+- Step spacing: `gap-6`
+
+## Surface
+- Cards: `rounded-2xl`, `bg-white`, `shadow-sm`, `border`
+- Status icons: `rounded-full`, bright green `bg-[#80f20d]` for active, gray for inactive
+
+## Typography
+- ETA text: `text-3xl font-extrabold text-navy`
+- Active Step Label: `font-bold text-foreground`
+- Inactive Step Label: `font-medium text-muted-foreground`

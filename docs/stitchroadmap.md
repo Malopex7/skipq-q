@@ -263,7 +263,7 @@ Style: Uber-inspired, map-forward layout, navy accent, minimal UI, mobile. Tailw
 
 ---
 
-### C7. Live Queue Tracker
+### [x] C7. Live Queue Tracker
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_PRO

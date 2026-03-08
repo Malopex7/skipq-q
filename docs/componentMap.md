@@ -24,12 +24,14 @@
 - `book/location/page.tsx` (C4 Select Branch)
 - `book/details/page.tsx` (C5 Booking Detail)
 - `book/matching/page.tsx` (C6 Finding Runner)
+- `book/tracker/page.tsx` (C7 Live Queue Tracker)
 
 ## Sections
 - `ServiceCategoryGrid`
 - `BranchList`
 - `BookingForm`
 - `MatchingScreen`
+- `QueueProgressTracker`
 
 ## UI Primitives
 - `CategoryCard`
@@ -39,3 +41,5 @@
 - `TimeSlotPicker`
 - `BookingSummaryCard`
 - `JobSummaryCard`
+- `RunnerProfileCard`
+- `EtaDisplay`
