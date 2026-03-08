@@ -125,3 +125,33 @@
 ## Typography
 - Section headers: `text-sm font-semibold`
 - Price text: `text-2xl font-bold text-primary`
+
+---
+
+# Screen: C6 Finding Runner
+
+## Layout
+- Full-screen height, map-forward mobile layout
+- Top 60%: pulsing map background with central pin
+- Map overlay: "Finding a Runner Near You..." status with animation
+- Bottom 40%: absolute positioned white surface / card
+- Floating Job Summary: service name, date/time, estimated price
+- Floating Action: "Cancel Request" (light gray, secondary styling)
+
+## Components
+- `MatchingMapBackground`
+- `MatchingStatusOverlay`
+- `JobSummaryCard`
+- `CancelSearchButton`
+
+## Spacing
+- Bottom floating card padding: `p-6` or `p-8`
+- Button margins: `mt-4`
+
+## Surface
+- Summary card: `bg-white`, `rounded-t-3xl` or `rounded-2xl`, high shadow `shadow-lg`
+
+## Typography
+- Status text: `text-lg font-bold text-primary`
+- Summary title: `text-base font-semibold text-foreground`
+- Summary details: `text-sm text-muted-foreground`

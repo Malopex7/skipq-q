@@ -239,7 +239,7 @@ Style: vertical form stack, clear field labels, clean spacing, mobile-first. Tai
 
 ---
 
-### C6. Runner Matching
+### [x] C6. Runner Matching
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_PRO

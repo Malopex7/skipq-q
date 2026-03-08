@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Searching for Runner Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f0fbd",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101022",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 flex justify-center min-h-screen">
+<div class="relative flex h-screen w-full max-w-md flex-col bg-white dark:bg-slate-900 overflow-hidden shadow-2xl rounded-[2.5rem] my-auto border-[8px] border-slate-900 dark:border-slate-800">
+<!-- Status Header -->
+<div class="absolute top-12 left-0 right-0 z-20 px-4">
+<div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full shadow-lg p-3 flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse" style="animation-delay: 150ms"></div>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse" style="animation-delay: 300ms"></div>
+<h1 class="text-slate-900 dark:text-slate-100 text-sm font-semibold tracking-wide uppercase ml-2">Finding a Runner Near You</h1>
+</div>
+</div>
+<!-- Map Section -->
+<div class="flex-1 relative w-full h-[60%] bg-cover bg-center" data-alt="Map of Randburg showing runner locations" data-location="Randburg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjTWiJB9cnhHAXtOoPqUH7rJq9F-H0_o-VDIDCGcFeHqyDdSBqktWqgXWL-jS2fXvYXb9_thpurCOJODoO9359ykEHaubPqP09hjNI725l1GMjoMiNk1YhIJ-3HHEXYwYpK8p6YiuHV6UA4fgPHJpifN3Yb6-JGla3p5mgiBPzMw9lFaVttwE5LvqN6LsLKdQS0Lul_OSb_ht5RykQeltQokmD84Op_gKmq2xmlLDVyIAsJ1-PpTL0Z6NVkkfUKV0ad0pqCLl6zZ4");'>
+<!-- Pulsing Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+<div class="relative flex items-center justify-center">
+<div class="absolute w-24 h-24 bg-primary/20 rounded-full animate-ping"></div>
+<div class="absolute w-16 h-16 bg-primary/30 rounded-full animate-pulse"></div>
+<div class="relative w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-4 bottom-8 flex flex-col gap-2 z-20">
+<div class="flex flex-col gap-0.5 rounded-lg overflow-hidden shadow-md">
+<button class="flex size-10 items-center justify-center bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="flex size-10 items-center justify-center bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+</div>
+<button class="flex size-10 items-center justify-center rounded-lg bg-white dark:bg-slate-800 shadow-md hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors mt-2">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+<!-- Bottom Sheet -->
+<div class="relative bg-white dark:bg-slate-900 rounded-t-3xl shadow-[0_-8px_30px_rgba(0,0,0,0.12)] z-30 pt-2 pb-8 px-5 flex flex-col gap-6 transform -translate-y-4">
+<!-- Handle -->
+<div class="w-12 h-1.5 bg-slate-300 dark:bg-slate-700 rounded-full mx-auto mb-2"></div>
+<!-- Job Summary Card -->
+<div class="flex items-start justify-between gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+<div class="flex flex-col gap-2 flex-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight">Home Affairs - Randburg</p>
+</div>
+<div class="flex items-center gap-2 pl-7">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 text-[18px]">calendar_today</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Tomorrow, 08:00 AM</p>
+</div>
+<div class="flex items-center gap-2 pl-7 mt-1">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 text-[18px]">payments</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Est. R150</p>
+</div>
+</div>
+<div class="w-16 h-16 bg-slate-200 dark:bg-slate-700 rounded-xl flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-[32px]">store</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 px-6 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-base hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    Cancel Request
+                </button>
+</div>
+</div>
+</div>
+</body></html>
