@@ -22,13 +22,17 @@
 ## Page Views
 - `book/page.tsx` (C3 Select Service)
 - `book/location/page.tsx` (C4 Select Branch)
+- `book/details/page.tsx` (C5 Booking Detail)
 
 ## Sections
 - `ServiceCategoryGrid`
 - `BranchList`
+- `BookingForm`
 
 ## UI Primitives
 - `CategoryCard`
 - `SearchFilter`
 - `BranchCard`
 - `StatusBadge` (for wait times)
+- `TimeSlotPicker`
+- `BookingSummaryCard`

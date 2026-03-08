@@ -212,7 +212,7 @@ Style: list layout, clean cards, wait time badge coloured (green = short, red = 
 
 ---
 
-### C5. Booking Detail
+### [x] C5. Booking Detail
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_FLASH

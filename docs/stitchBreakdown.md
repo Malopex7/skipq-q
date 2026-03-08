@@ -88,3 +88,40 @@
 - Branch name: `text-base font-bold`
 - Area/Distance: `text-sm text-muted-foreground`
 - Badge text: `text-xs font-semibold`
+
+---
+
+# Screen: C5 Booking Detail
+
+## Layout
+- Mobile-first, vertical form stack
+- Page header: "Booking Details"
+- Summary card: selected service + branch
+- Date picker (horizontal scroll of dates)
+- Time slot selector (chips for Morning / Afternoon / Specific Time)
+- Special instructions textarea
+- Document type selector
+- Price estimate display (bottom, fixed or inline)
+- Confirm & Find Runner button (large primary)
+
+## Components
+- `PageHeader`
+- `BookingSummaryCard`
+- `BookingForm`
+  - `DatePicker`
+  - `TimeSlotPicker`
+  - `SpecialInstructionsInput`
+  - `DocumentTypeSelector`
+- `PriceEstimateDisplay`
+
+## Spacing
+- form gap: `gap-6`
+- element padding: `p-4` or `p-5`
+
+## Surface
+- inputs and selectors: `rounded-xl`, `border-slate-200`
+- summary card: `rounded-2xl`, `bg-slate-50`, `border`
+
+## Typography
+- Section headers: `text-sm font-semibold`
+- Price text: `text-2xl font-bold text-primary`

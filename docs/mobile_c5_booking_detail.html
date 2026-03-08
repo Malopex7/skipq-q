@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Details Form</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f0fbd",
+                        "accent-lime": "#d9f99d",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101022",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full max-w-[430px] mx-auto flex-col bg-background-light dark:bg-background-dark overflow-x-hidden pb-32">
+<!-- Header -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 justify-between border-b border-slate-200 dark:border-slate-800">
+<button class="text-slate-900 dark:text-slate-100 flex size-10 items-center justify-center rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">Booking Details</h2>
+</div>
+<!-- Summary Card -->
+<div class="p-4">
+<div class="flex items-center gap-4 rounded-xl bg-white dark:bg-slate-900 p-4 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-3xl">account_balance</span>
+</div>
+<div class="flex flex-col gap-0.5 flex-1">
+<p class="text-slate-900 dark:text-slate-100 text-base font-bold leading-tight">Home Affairs</p>
+<div class="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined text-xs">location_on</span>
+<p class="text-sm font-normal">Randburg Branch</p>
+</div>
+</div>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-accent-lime text-slate-900">
+<span class="material-symbols-outlined text-sm">verified</span>
+</div>
+</div>
+</div>
+<!-- Date Picker -->
+<div class="px-4 py-2">
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold uppercase tracking-wider mb-3">Select Date</h3>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<div class="flex flex-col shrink-0 items-center justify-center w-16 h-20 rounded-xl bg-primary text-white shadow-md shadow-primary/20">
+<p class="text-[10px] uppercase font-bold opacity-80">Mon</p>
+<p class="text-xl font-bold">12</p>
+</div>
+<div class="flex flex-col shrink-0 items-center justify-center w-16 h-20 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-[10px] uppercase font-bold text-slate-400">Tue</p>
+<p class="text-xl font-bold text-slate-700 dark:text-slate-300">13</p>
+</div>
+<div class="flex flex-col shrink-0 items-center justify-center w-16 h-20 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-[10px] uppercase font-bold text-slate-400">Wed</p>
+<p class="text-xl font-bold text-slate-700 dark:text-slate-300">14</p>
+</div>
+<div class="flex flex-col shrink-0 items-center justify-center w-16 h-20 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-[10px] uppercase font-bold text-slate-400">Thu</p>
+<p class="text-xl font-bold text-slate-700 dark:text-slate-300">15</p>
+</div>
+<div class="flex flex-col shrink-0 items-center justify-center w-16 h-20 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+<p class="text-[10px] uppercase font-bold text-slate-400">Fri</p>
+<p class="text-xl font-bold text-slate-700 dark:text-slate-300">16</p>
+</div>
+</div>
+</div>
+<!-- Time Slot Selector -->
+<div class="px-4 py-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold uppercase tracking-wider mb-3">Time Preference</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">light_mode</span>
+                    Morning
+                </button>
+<button class="px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">wb_twilight</span>
+                    Afternoon
+                </button>
+<button class="px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">schedule</span>
+                    Specific Time
+                </button>
+</div>
+</div>
+<!-- Document Type Selector -->
+<div class="px-4 py-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold uppercase tracking-wider mb-3">Document Type</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border-2 border-primary text-primary font-bold text-sm">
+                    Smart ID Card
+                </button>
+<button class="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm">
+                    Passport
+                </button>
+<button class="px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 font-medium text-sm">
+                    Birth Certificate
+                </button>
+</div>
+</div>
+<!-- Special Instructions -->
+<div class="px-4 py-4">
+<h3 class="text-slate-900 dark:text-slate-100 text-sm font-bold uppercase tracking-wider mb-3">Special Instructions</h3>
+<textarea class="w-full rounded-xl border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:ring-primary focus:border-primary p-4 text-sm" placeholder="Example: Renewing ID — have documents ready, will arrive in a blue jacket." rows="3"></textarea>
+</div>
+<!-- Bottom Fixed Section -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 p-4 pb-8 space-y-4">
+<div class="flex items-center justify-between px-2">
+<div class="flex flex-col">
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">Estimated Cost</p>
+<p class="text-slate-900 dark:text-slate-100 text-2xl font-black">R 150.00</p>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-950 bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a queue runner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXdQLDu5lJzkh3yoqklFA6sJ5K8a1r-72kjvYxLDezZufrWHxGUF7vI0-NZlxvP7iZgW1G4bF2gCudQMAMH3OuuyIXtqLlYGN6PZcq2BDcFUlFqj8bSJruCWWLvEzf88BEDXqWONeiGxQv0eSLbIRV2pqJF3pSaeStxmJplh1frNZxlv82g998BIQ4ejZx82eT3rfwYihIegCZHuvy3VX4jsZGN5z0aLrI3nsEsUwVq2VOKtAijeb39hUxj0sHRXLQvYq_0addSJc"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-950 bg-slate-200 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a service provider" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_KcNJv4kdGnFeMNIpgQzjYxrKBxpWD5w37K5Dqm8G6wvqCeeaGRUhLd21Twdm9pfO4y263RaGJP2mCSTw_hntyJ9xq_2D3FaFDw-O-zZciXC0a6J2msq4kYaaK1uciHdzvZW6u1eHGfmGZsj5YKExG76xVNeN_rmILI7gsApvBvs9iDwSNWyuF8O6R8S3XK9fuewrOBlnzpYXdW6MM38y2ZLfIWEfKZs90XUkEJis-BJ3CLsq_MIYaOLlki5sGYwQSD08Y5aeqA0"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-950 bg-primary flex items-center justify-center text-[10px] text-white font-bold">
+                        +12
+                    </div>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-2 transition-transform active:scale-[0.98]">
+                Confirm &amp; Find Runner
+                <span class="material-symbols-outlined">bolt</span>
+</button>
+</div>
+<!-- Navigation Placeholder to match layout requirements -->
+<div class="hidden">
+<div class="flex gap-2 border-t border-slate-200 bg-white px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">calendar_month</span>
+<p class="text-xs font-medium">Bookings</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<p class="text-xs font-medium">Wallet</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>
