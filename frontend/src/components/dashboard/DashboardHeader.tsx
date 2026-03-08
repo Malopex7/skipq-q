@@ -18,11 +18,11 @@ export function DashboardHeader({ userName, avatarUrl }: DashboardHeaderProps) {
                     <span className="absolute top-1.5 right-1.5 h-2.5 w-2.5 bg-red-500 rounded-full border-2 border-white" />
                 </button>
                 <div className="h-10 w-10 rounded-full bg-slate-200 overflow-hidden flex items-center justify-center border-2 border-white shadow-sm">
-                    {avatarUrl ? (
-                        <img src={avatarUrl} alt={userName} className="h-full w-full object-cover" />
-                    ) : (
-                        <span className="font-bold text-slate-500">{userName.charAt(0)}</span>
-                    )}
+                    {avatarUrl
+                        // eslint-disable-next-line @next/next/no-img-element
+                        ? <img src={avatarUrl} alt={userName} className="h-full w-full object-cover" />
+                        : <span className="font-bold text-slate-500">{userName.charAt(0)}</span>
+                    }
                 </div>
             </div>
         </div>

@@ -14,11 +14,11 @@ export function RunnerProfileCard({ name, rating, imageUrl, onChatClick }: Runne
             <div className="flex items-center gap-4">
                 {/* Avatar */}
                 <div className="h-14 w-14 rounded-full bg-slate-200 overflow-hidden shrink-0 border-2 border-slate-100 flex items-center justify-center">
-                    {imageUrl ? (
-                        <img src={imageUrl} alt={name} className="h-full w-full object-cover" />
-                    ) : (
-                        <span className="text-xl font-bold text-slate-400">{name.charAt(0)}</span>
-                    )}
+                    {imageUrl
+                        // eslint-disable-next-line @next/next/no-img-element
+                        ? <img src={imageUrl} alt={name} className="h-full w-full object-cover" />
+                        : <span className="text-xl font-bold text-slate-400">{name.charAt(0)}</span>
+                    }
                 </div>
 
                 {/* Info */}

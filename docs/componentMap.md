@@ -98,3 +98,8 @@
 - `PaginationBar`
 - `PendingApplicationsTable`
 - `RunnerTable`
+- `JobStatusTabs`
+- `LiveJobsMonitor`
+- `AutoRefreshIndicator`
+- `ServiceCategoryTable`
+- `AddCategoryForm`

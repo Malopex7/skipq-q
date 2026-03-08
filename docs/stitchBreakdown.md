@@ -556,3 +556,57 @@
 ## Typography
 - Section headings: `text-lg font-bold text-slate-900`
 - Rating: `text-sm font-semibold text-yellow-600`
+
+---
+
+# Screen: A4 Active Jobs Monitor
+
+## Layout
+- Desktop-first Admin Shell (sidebar + main)
+- Header: "Live Job Monitoring" + auto-refresh indicator top-right
+- Filter Tabs row: All / Matching / En Route / Waiting / Near Front / Complete / Cancelled
+- Main Content: High-density live table with alternating rows
+
+## Components
+- `JobStatusTabs`
+- `LiveJobsMonitor`
+- `AutoRefreshIndicator`
+
+## Spacing
+- Table cell: `px-6 py-4`
+- Tab gap: `gap-1`
+
+## Surface
+- Matching badge: `bg-slate-100 text-slate-600`
+- En Route badge: `bg-blue-100 text-blue-700`
+- Waiting badge: `bg-orange-100 text-orange-700`
+- Near Front badge: `bg-yellow-100 text-yellow-700`
+- Complete badge: `bg-green-100 text-green-700`
+- Cancelled badge: `bg-red-100 text-red-700`
+
+## Typography
+- Job ID: `text-sm font-semibold text-blue-600 hover:underline`
+- Table cells: `text-sm text-slate-600`
+
+---
+
+# Screen: A5 Service Categories & Pricing
+
+## Layout
+- Desktop Admin Shell (sidebar + main)
+- Header: "Service Categories & Pricing" + "Add New Category" primary button
+- Main: data table with icon, name, prices, active toggle, edit action
+- Side Panel (drawer): "Add New Category" form on right
+
+## Components
+- `ServiceCategoryTable`
+- `AddCategoryForm`
+
+## Surface
+- Active toggle ON: `bg-green-500`
+- Active toggle OFF: `bg-slate-300`
+- Side Panel: `bg-white border-l border-slate-200 shadow-xl`
+
+## Typography
+- Service name: `text-sm font-semibold text-slate-900`
+- Price values: `text-sm text-slate-700 font-medium`

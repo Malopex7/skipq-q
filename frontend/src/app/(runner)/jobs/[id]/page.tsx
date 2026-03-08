@@ -11,6 +11,7 @@ export default function RunnerJobDetailPage() {
 
                 {/* Map Header Preview (Placeholder) */}
                 <div className="h-64 w-full bg-slate-200 relative">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80"
                         alt="Map Preview"

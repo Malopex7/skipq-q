@@ -20,11 +20,11 @@ export function ChatHeader({ runnerName, runnerAvatar, isActive = true }: ChatHe
 
                 <div className="relative">
                     <div className="h-10 w-10 rounded-full bg-slate-200 overflow-hidden flex items-center justify-center">
-                        {runnerAvatar ? (
-                            <img src={runnerAvatar} alt={runnerName} className="h-full w-full object-cover" />
-                        ) : (
-                            <span className="font-bold text-slate-500">{runnerName.charAt(0)}</span>
-                        )}
+                        {runnerAvatar
+                            // eslint-disable-next-line @next/next/no-img-element
+                            ? <img src={runnerAvatar} alt={runnerName} className="h-full w-full object-cover" />
+                            : <span className="font-bold text-slate-500">{runnerName.charAt(0)}</span>
+                        }
                     </div>
                     {isActive && (
                         <div className="absolute bottom-0 right-0 h-3 w-3 bg-[#80f20d] border-2 border-white rounded-full" />

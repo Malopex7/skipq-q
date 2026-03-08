@@ -582,7 +582,7 @@ Style: clean admin, navy sidebar, status badges coloured. Tailwind-compatible.
 
 ---
 
-### A4. Active Jobs Monitor
+### [x] A4. Active Jobs Monitor
 
 ```
 generate_screen_from_text · deviceType: DESKTOP · modelId: GEMINI_3_PRO
@@ -605,7 +605,7 @@ Style: clean monitoring dashboard, navy sidebar, status badges colour-coded, Tai
 
 ---
 
-### A5. Service Categories & Pricing
+### [x] A5. Service Categories & Pricing
 
 ```
 generate_screen_from_text · deviceType: DESKTOP · modelId: GEMINI_3_FLASH
