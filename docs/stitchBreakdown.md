@@ -189,3 +189,70 @@
 - ETA text: `text-3xl font-extrabold text-navy`
 - Active Step Label: `font-bold text-foreground`
 - Inactive Step Label: `font-medium text-muted-foreground`
+
+---
+
+# Screen: C8 Chat with Queue Runner
+
+## Layout
+- Mobile-first, vertical chat interface
+- Chat header: sticky top, runner avatar, name, and "Active" status indicator
+- Message thread: scrollable area, right-aligned blue bubbles (client), left-aligned gray bubbles (runner)
+- Time separators: centered timestamp chips
+- Bottom action area: fixed, text input field, send button, and horizontal scroll of quick replies above input
+
+## Components
+- `ChatHeader`
+- `MessageBubble`
+- `ChatThread`
+- `QuickReplies`
+- `ChatInputArea`
+
+## Spacing
+- Thread padding: `p-4`
+- Message gap: `gap-2`
+- Input layout: `p-4`
+
+## Surface
+- Client bubble: `bg-primary`, `text-white`, `rounded-2xl rounded-br-sm`
+- Runner bubble: `bg-slate-100`, `text-foreground`, `rounded-2xl rounded-bl-sm`
+- Background: `bg-slate-50`
+
+## Typography
+- Bubble text: `text-sm leading-relaxed`
+- Timestamps: `text-xs text-muted-foreground font-medium`
+
+---
+
+# Screen: C9 Client Dashboard
+
+## Layout
+- Mobile-first, vertical scrolling dashboard
+- Header: Profile greeting and avatar
+- High-priority section: "Active Booking" card (prominent, contains tracking CTA)
+- Main feed: "Recent Activity" list of stacked cards
+- Floating Action Button (FAB): Bottom right for "Book New Queue"
+- Fixed Bottom Navigation: Home, My Jobs, Chat, Profile
+
+## Components
+- `DashboardHeader`
+- `ActiveJobBanner`
+- `RecentJobsList`
+  - `JobHistoryCard`
+- `BookQueueFab`
+- `ClientBottomNav`
+
+## Spacing
+- Global side padding: `px-4` or `px-6`
+- Section gap: `mt-8`
+- Stack gap: `gap-4`
+
+## Surface
+- Cards: `bg-white`, `rounded-2xl`, `border border-slate-100`, `shadow-sm`
+- Background: `bg-slate-50`
+- Active State / Tracker CTA: `bg-[#80f20d]` or primary blue
+
+## Typography
+- Section Titles: `text-lg font-bold text-foreground`
+- Card Titles: `font-semibold text-base`
+- Badges: `text-xs font-semibold`

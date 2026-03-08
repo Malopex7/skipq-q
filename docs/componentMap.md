@@ -25,6 +25,8 @@
 - `book/details/page.tsx` (C5 Booking Detail)
 - `book/matching/page.tsx` (C6 Finding Runner)
 - `book/tracker/page.tsx` (C7 Live Queue Tracker)
+- `jobs/[id]/chat/page.tsx` (C8 Chat with Runner)
+- `dashboard/page.tsx` (C9 Client Dashboard)
 
 ## Sections
 - `ServiceCategoryGrid`
@@ -32,6 +34,8 @@
 - `BookingForm`
 - `MatchingScreen`
 - `QueueProgressTracker`
+- `ChatThread`
+- `RecentJobsList`
 
 ## UI Primitives
 - `CategoryCard`
@@ -43,3 +47,11 @@
 - `JobSummaryCard`
 - `RunnerProfileCard`
 - `EtaDisplay`
+- `MessageBubble`
+- `QuickReplies`
+- `ChatInputArea`
+- `DashboardHeader`
+- `ActiveJobBanner`
+- `JobHistoryCard`
+- `BookQueueFab`
+- `ClientBottomNav`

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat with Queue Runner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .message-shadow {
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex flex-col h-screen max-w-md mx-auto bg-background-light dark:bg-background-dark overflow-hidden border-x border-slate-200 dark:border-slate-800">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-10 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 border-b border-slate-100 dark:border-slate-800 justify-between">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-1 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">chevron_left</span>
+</button>
+<div class="relative">
+<div class="bg-slate-200 rounded-full size-10 bg-center bg-cover border border-slate-100 dark:border-slate-700" data-alt="Professional headshot of runner Sipho" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDbXGlF3R4Ma-qepBryeWIKhFGyIhRxJgboNb_KoacdGmVeG6us4kk0VhOGC0wnaxZlHev_i0Dhc2SE8jx9w7wlm8fnPZxFzjjc1mHG3Z5FRzFpdOhNwkzmyLCXJ6WNSCQaAHihJkiwj5w1rZ_q9ifhq-Ukn1LNahYzClt7mm_wP7oz574pnBdfvVl7-3KBJuSFfsD_HooTIbcMZMuiuxXYyeA0SxP8TBjoWmc6AJT35gm9dmDWEFakNRLzLMf51_Q5hwFtJCiLPmo");'></div>
+<div class="absolute bottom-0 right-0 size-3 bg-green-500 border-2 border-white dark:border-background-dark rounded-full"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="text-slate-900 dark:text-slate-100 text-base font-bold leading-tight">Sipho</h2>
+<p class="text-green-600 dark:text-green-400 text-xs font-medium">Active now</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Message Thread -->
+<main class="flex-1 overflow-y-auto p-4 space-y-4">
+<div class="flex justify-center">
+<span class="px-3 py-1 bg-slate-200/50 dark:bg-slate-800/50 rounded-full text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Today</span>
+</div>
+<!-- Runner Message -->
+<div class="flex items-end gap-2">
+<div class="bg-slate-200 rounded-full size-8 shrink-0 bg-center bg-cover" data-alt="Sipho profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFDnsdAoB7hKpVeBJMeAjJEAdkgxbN4bGAJQRNXxnK_EQ2VNa2wFqfc-V40RA-gAwM5-BcHZGBV5LuS37EF1JvchsEvrLEUmcdy1v9KRqr4f0OJr0o2pOdzb8PQQqgXUIbNiDeY8NX-5YCFkmof_GqF5Jifod_eqo9WBGVguFGdHK_eIbWImDubvvE7G6I2wmhyu44Gb2OWALdu6EzJvt71hLEWtoWRrGb22ZUEG0jlncal9quoCzdDvXQAbF7Ee8C_qmgIeTt8Zk");'></div>
+<div class="flex flex-col gap-1 max-w-[75%]">
+<div class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-4 py-2.5 rounded-2xl rounded-bl-none message-shadow text-sm leading-relaxed">
+                        Hi! I'm currently at the front of the line. Should be about 5 more minutes.
+                    </div>
+<span class="text-[10px] text-slate-400 ml-1">11:42 AM</span>
+</div>
+</div>
+<!-- Client Message -->
+<div class="flex flex-col items-end gap-1">
+<div class="max-w-[75%] bg-primary text-white px-4 py-2.5 rounded-2xl rounded-br-none message-shadow text-sm leading-relaxed">
+                    Perfect, thank you for the update! 
+                </div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-slate-400">11:43 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary">done_all</span>
+</div>
+</div>
+<!-- Runner Message -->
+<div class="flex items-end gap-2">
+<div class="bg-slate-200 rounded-full size-8 shrink-0 bg-center bg-cover" data-alt="Sipho profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCMw4LMFjhmy5G2Z1f735XOGmss4GIM-bor2_fphEGASY6ROvG8gy9gzPVpZJHtqIPnAtxYVTY7AQ-zXsJ_zFv4UBabS9UVlDfYbfiY7buhiBkhrLPoNa6_CUBRqlMUinZn_WU5R4jvVakCEIc03DPVEg9KDsMozHfhlvPUuY7fErtRYe97GF2szpnN3xU1CSuVbEnLz3npW2i1q4o2hVXptv_djaZMl5ZzFd3SG7igZOovvwPda-W8l97cQ4tYjdx2fU3nZMv7kw");'></div>
+<div class="flex flex-col gap-1 max-w-[75%]">
+<div class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-4 py-2.5 rounded-2xl rounded-bl-none message-shadow text-sm leading-relaxed">
+                        You're welcome. I'll let you know as soon as I've secured your spot.
+                    </div>
+<span class="text-[10px] text-slate-400 ml-1">11:44 AM</span>
+</div>
+</div>
+<!-- Runner Message -->
+<div class="flex items-end gap-2">
+<div class="bg-slate-200 rounded-full size-8 shrink-0 bg-center bg-cover" data-alt="Sipho profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvOwc3b4p5fVAbO8_qvdiIULetxooBKGtpwfK5JXoRQL3ZCFuKF9AoHQpSS-cEnxhexnTVkPy7U2L8H2r1JfMUcSdV89zoJnmp9OSHV2SMMzSmjS0QCJJ4XTrt_LtFCUNd8Xi5JQTGy_VqyoMQ1CCzy2NWZ-YKPqUV76TaNbtIF7zNP0I8_Tc3PRJ5NAK0SXzZrl9_LFZqcrq7aajQsq8yyE-AGzWIgYWVxvskxG9IlP_Ifc-y570V8jdwtFFziY11OPyXLKlCuHE");'></div>
+<div class="flex flex-col gap-1 max-w-[75%]">
+<div class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-4 py-2.5 rounded-2xl rounded-bl-none message-shadow text-sm leading-relaxed">
+                        Just reached the desk. Checking in now!
+                    </div>
+<span class="text-[10px] text-slate-400 ml-1">11:50 AM</span>
+</div>
+</div>
+</main>
+<!-- Footer Area -->
+<footer class="bg-white dark:bg-background-dark p-4 pb-8 border-t border-slate-100 dark:border-slate-800">
+<!-- Quick Reply Chips -->
+<div class="flex gap-2 overflow-x-auto pb-4 no-scrollbar">
+<button class="shrink-0 px-4 py-2 bg-primary/10 dark:bg-primary/20 text-primary rounded-full text-xs font-semibold whitespace-nowrap border border-primary/20">
+                    How long?
+                </button>
+<button class="shrink-0 px-4 py-2 bg-primary/10 dark:bg-primary/20 text-primary rounded-full text-xs font-semibold whitespace-nowrap border border-primary/20">
+                    Are you there?
+                </button>
+<button class="shrink-0 px-4 py-2 bg-primary/10 dark:bg-primary/20 text-primary rounded-full text-xs font-semibold whitespace-nowrap border border-primary/20">
+                    Thank you!
+                </button>
+<button class="shrink-0 px-4 py-2 bg-primary/10 dark:bg-primary/20 text-primary rounded-full text-xs font-semibold whitespace-nowrap border border-primary/20">
+                    On my way
+                </button>
+</div>
+<!-- Input Bar -->
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<div class="flex-1 relative">
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full px-5 py-3 text-sm focus:ring-2 focus:ring-primary/50 text-slate-800 dark:text-slate-100 placeholder-slate-400" placeholder="Type a message..." type="text"/>
+</div>
+<button class="size-11 flex items-center justify-center bg-primary text-white rounded-full shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
+<span class="material-symbols-outlined fill-1">send</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

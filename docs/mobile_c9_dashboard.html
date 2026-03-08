@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client Dashboard Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen relative flex flex-col antialiased">
+<!-- Header -->
+<header class="flex items-center justify-between p-4 bg-white dark:bg-slate-900 shadow-sm sticky top-0 z-10">
+<h2 class="text-xl font-bold tracking-tight">Hi, Thabo</h2>
+<button class="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary overflow-hidden">
+<span class="material-symbols-outlined" style="font-size: 24px;">account_circle</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 pb-24 overflow-y-auto">
+<!-- Active Booking Section -->
+<section class="p-4">
+<h2 class="text-xl font-bold tracking-tight mb-4">Active Booking</h2>
+<div class="flex flex-col gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex items-start justify-between gap-4">
+<div class="flex flex-col gap-1 flex-1">
+<p class="text-base font-bold leading-tight">Randburg Home Affairs</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Waiting (Sipho)</p>
+</div>
+<div class="w-16 h-16 rounded-lg bg-cover bg-center shrink-0 border border-slate-100 dark:border-slate-700" data-alt="Map indicating Randburg Home Affairs location" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDazE6LejXvLz-pBEX4LPbgA2Vh1DZBJmFEYmiBHghS35PWuZs9HPkEBnYmWMOGvHU74JAv3fsQhXfsvJ0lkVVpgUsCun2R_7rfjAYiSV_agH05JYyCP_54TkRedPLVr08RS2cZWqUgjs73g_hn3aJVZuhGnsuPsKBOTVikw1dqAsAirOQUijliBTEr3sdTUAiGC8JhMZZEMvqRtaFRBCTtNOyP47cARhi0OyVkYle1C2ELTsKt-ohmITaToiHzpBPvNkMSOT1IJ4E");'></div>
+</div>
+<div class="flex items-center justify-between mt-2 border-t border-slate-100 dark:border-slate-700 pt-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+<span class="text-sm font-medium text-slate-600 dark:text-slate-300">In Progress</span>
+</div>
+<button class="flex items-center justify-center rounded-full h-9 px-5 bg-[#84cc16] text-slate-900 text-sm font-bold shadow-sm hover:bg-[#65a30d] transition-colors">
+                        Track Live
+                    </button>
+</div>
+</div>
+</section>
+<!-- Recent Activity Section -->
+<section class="p-4 pt-0">
+<h2 class="text-xl font-bold tracking-tight mb-4">Recent Activity</h2>
+<div class="flex flex-col gap-3">
+<!-- Activity Card 1 -->
+<div class="flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-bold leading-tight mb-0.5">SARS - Rissik Street</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">12 Oct 2023</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 shrink-0">
+<span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/30 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400 ring-1 ring-inset ring-green-600/20">Completed</span>
+<p class="text-sm font-semibold">R150</p>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">museum</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-bold leading-tight mb-0.5">Standard Bank - Rosebank</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">05 Oct 2023</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 shrink-0">
+<span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/30 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400 ring-1 ring-inset ring-green-600/20">Completed</span>
+<p class="text-sm font-semibold">R120</p>
+</div>
+</div>
+<!-- Activity Card 3 -->
+<div class="flex items-center justify-between gap-4 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined">local_hospital</span>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-bold leading-tight mb-0.5">Netcare - Milpark</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs font-medium">28 Sep 2023</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 shrink-0">
+<span class="inline-flex items-center rounded-md bg-red-50 dark:bg-red-900/30 px-2 py-1 text-xs font-medium text-red-700 dark:text-red-400 ring-1 ring-inset ring-red-600/20">Cancelled</span>
+<p class="text-sm font-semibold">R0</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-4 flex items-center justify-center gap-2 bg-primary text-white rounded-full py-3 px-5 shadow-lg shadow-primary/30 hover:bg-blue-700 transition-colors z-20 font-semibold text-sm">
+<span class="material-symbols-outlined" style="font-size: 20px;">add</span>
+        Book New Queue
+    </button>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pb-safe pt-2 px-4 z-30">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary pb-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-medium tracking-wide">Home</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary transition-colors pb-2" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-medium tracking-wide">Activity</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary transition-colors pb-2" href="#">
+<span class="material-symbols-outlined">wallet</span>
+<span class="text-[10px] font-medium tracking-wide">Wallet</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-primary transition-colors pb-2" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium tracking-wide">Profile</span>
+</a>
+</div>
+<!-- iOS Home Indicator Spacing -->
+<div class="h-5 bg-transparent"></div>
+</nav>
+</body></html>

@@ -291,7 +291,7 @@ Style: Uber-trip-inspired, status steps prominent, navy + green, mobile. Tailwin
 
 ---
 
-### C8. Chat with Runner
+### [x] C8. Chat with Runner
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_FLASH
@@ -315,7 +315,7 @@ Style: WhatsApp-inspired but cleaner, light background, navy send button. Mobile
 
 ---
 
-### C9. Client Dashboard
+### [x] C9. Client Dashboard
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_PRO
