@@ -426,7 +426,7 @@ Style: Uber Driver-inspired, clean cards, navy, lime accent for pay, mobile-firs
 
 ---
 
-### R3. Job Detail — Accept or Decline
+### [x] R3. Job Detail — Accept or Decline
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_FLASH

@@ -358,3 +358,37 @@
 - Section headers: `text-xl font-bold text-white`
 - Card titles: `font-semibold text-base text-white`
 - Pay amount: `text-xl font-bold text-[#80f20d]`
+
+---
+
+# Screen: R3 Runner Job Review
+
+## Layout
+- Mobile-first, Light Mode theme for detail screens
+- Top area: Map preview taking up top 25% of screen height
+- Middle area: Overlapping detail card containing:
+  - Header: Service name and branch
+  - Grid points: Scheduled time, duration, documents needed
+  - Special Instructions block
+  - Earnings block
+- Bottom sticky area: Large primary Accept button and secondary Decline text link
+
+## Components
+- `JobDetailMap`
+- `JobDetailCard`
+- `JobActionFooter`
+
+## Spacing
+- Global padding: `px-5 py-6`
+- Card overlap margin: `-mt-6`
+- Detail grid gap: `gap-4`
+
+## Surface
+- Background: `bg-slate-100`
+- Card: `bg-white`, `rounded-[2rem]`, `shadow-xl`, `border border-slate-100`
+- Icons/Badges: `bg-primary/10`, `text-primary`
+
+## Typography
+- Main title: `text-2xl font-bold text-foreground`
+- Data labels: `text-sm font-semibold text-muted-foreground`
+- Data values: `text-base font-semibold text-foreground`

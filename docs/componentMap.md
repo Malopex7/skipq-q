@@ -30,6 +30,7 @@
 - `jobs/[id]/receipt/page.tsx` (C10 Job Completion Receipt)
 - `(runner)/onboard/page.tsx` (R1 Runner Onboarding)
 - `(runner)/jobs/page.tsx` (R2 Runner Dashboard)
+- `(runner)/jobs/[id]/page.tsx` (R3 Job Detail)
 
 ## Sections
 - `ServiceCategoryGrid`
@@ -69,3 +70,6 @@
 - `JobFilterBar`
 - `JobFeedCard`
 - `RunnerBottomNav`
+- `JobDetailMap`
+- `JobDetailCard`
+- `JobActionFooter`
