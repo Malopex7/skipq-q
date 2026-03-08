@@ -27,6 +27,7 @@
 - `book/tracker/page.tsx` (C7 Live Queue Tracker)
 - `jobs/[id]/chat/page.tsx` (C8 Chat with Runner)
 - `dashboard/page.tsx` (C9 Client Dashboard)
+- `jobs/[id]/receipt/page.tsx` (C10 Job Completion Receipt)
 
 ## Sections
 - `ServiceCategoryGrid`
@@ -55,3 +56,6 @@
 - `JobHistoryCard`
 - `BookQueueFab`
 - `ClientBottomNav`
+- `CompletionHeader`
+- `ReceiptSummaryCard`
+- `RunnerRating`

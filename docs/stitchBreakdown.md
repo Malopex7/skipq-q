@@ -256,3 +256,37 @@
 - Section Titles: `text-lg font-bold text-foreground`
 - Card Titles: `font-semibold text-base`
 - Badges: `text-xs font-semibold`
+
+---
+
+# Screen: C10 Job Completion Receipt
+
+## Layout
+- Mobile-first, vertical scroll
+- Header Area: Large green checkmark icon, "Queue Complete!" title
+- Summary Card: Centered block containing job details (Branch, Runner, Duration, Total Cost)
+- Rating Section: "Rate your runner" text, 5 large interactive stars, optional comment textarea
+- Payment Note: Small text indicating the payment method used
+- Fixed Bottom Actions: Primary "Book Another Queue" button, Secondary "Back to Home" outline button
+
+## Components
+- `CompletionHeader`
+- `ReceiptSummaryCard`
+- `RunnerRating`
+- `ReceiptActions`
+
+## Spacing
+- Global padding: `px-6 py-8`
+- Button Stack: `gap-3`
+- Top Spacing: `mt-12 mb-8`
+
+## Surface
+- Summary Card: `bg-slate-50`, `rounded-2xl`, `p-6`
+- Icon: `bg-[#80f20d]`, `text-white`, `h-20 w-20 rounded-full`
+- Primary Action: `bg-primary`, `text-white`
+- Secondary Action: `border-slate-200`, `text-slate-700`
+
+## Typography
+- Main Title: `text-3xl font-extrabold text-foreground`
+- Cost Text: `text-xl font-bold text-primary`
+- Labels: `text-sm font-medium text-muted-foreground`
