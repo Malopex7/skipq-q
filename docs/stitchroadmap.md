@@ -485,7 +485,7 @@ Style: action-focused, one big CTA per step, Uber-driver-inspired, navy + green,
 
 ---
 
-### R5. Runner Earnings Summary
+### [x] R5. Runner Earnings Summary
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_FLASH

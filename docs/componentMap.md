@@ -32,6 +32,7 @@
 - `(runner)/jobs/page.tsx` (R2 Runner Dashboard)
 - `(runner)/jobs/[id]/page.tsx` (R3 Job Detail)
 - `(runner)/jobs/[id]/active/page.tsx` (R4 Active Job)
+- `(runner)/earnings/page.tsx` (R5 Earnings Summary)
 
 ## Sections
 - `ServiceCategoryGrid`
@@ -43,6 +44,7 @@
 - `RecentJobsList`
 - `RunnerInputForm`
 - `StatusUpdatePanel`
+- `PayoutList`
 
 ## UI Primitives
 - `CategoryCard`
@@ -79,3 +81,7 @@
 - `CurrentStatusCard`
 - `StatusUpdateAction`
 - `ProofUploadButton`
+- `PeriodSelector`
+- `EarningsHero`
+- `EarningsChart`
+- `PayoutCard`

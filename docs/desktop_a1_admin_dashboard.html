@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkipQ Admin Dashboard Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#1152d4",
+          "background-light": "#f6f6f8",
+          "background-dark": "#101622",
+        },
+        fontFamily: {
+          "display": ["Inter"]
+        },
+        borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      },
+    },
+  }
+</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 flex flex-col min-h-screen">
+<div class="flex items-center bg-white dark:bg-slate-800 p-4 pb-2 justify-between border-b border-slate-200 dark:border-slate-700">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center material-symbols-outlined" data-icon="List" data-size="24px" data-weight="regular">
+menu
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1">SkipQ Admin Dashboard</h2>
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0">
+<img alt="Admin Avatar" class="w-full h-full object-cover" data-alt="Admin user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTfC6M1TRhLyXoftIX8rumIYPg9guvyWIyv_5NvbGXrjqxVyQ37iOHfr0OS5Ls7B-8iZy-uZURmZ1QIKtCTV0iED5uVgrMBBj8YNNXbcjEbSeCiLEPdfcFhvOTxBsCKSAruMNhtz4GQty4d4KhgC65Qta88fKsn8adzgXfsoLKvu00Ci9_yqz8eqEewW_xmjGFKMPCESmZ0sy5SUeNTlUWjx8fi5Ft5x04ryZo1PZMyPDE8AtjWYxf2tnhPi3p4LqKiLBbulNSd8k"/>
+</div>
+</div>
+<main class="flex-1 overflow-y-auto pb-24">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Key Metrics</h3>
+<div class="flex flex-wrap gap-4 p-4">
+<div class="flex min-w-[140px] flex-1 flex-col gap-2 rounded-lg p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal">Active Jobs</p>
+<p class="text-slate-900 dark:text-slate-100 tracking-light text-2xl font-bold leading-tight">42</p>
+<p class="text-green-600 dark:text-green-400 text-xs font-medium leading-normal flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_up</span> +12%</p>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-2 rounded-lg p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal">Clients</p>
+<p class="text-slate-900 dark:text-slate-100 tracking-light text-2xl font-bold leading-tight">1.2K</p>
+<p class="text-green-600 dark:text-green-400 text-xs font-medium leading-normal flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_up</span> +5%</p>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-2 rounded-lg p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal">Runners</p>
+<p class="text-slate-900 dark:text-slate-100 tracking-light text-2xl font-bold leading-tight">35</p>
+<p class="text-red-600 dark:text-red-400 text-xs font-medium leading-normal flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_down</span> -2%</p>
+</div>
+<div class="flex min-w-[140px] flex-1 flex-col gap-2 rounded-lg p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+<p class="text-slate-600 dark:text-slate-400 text-sm font-medium leading-normal">Disputes</p>
+<p class="text-slate-900 dark:text-slate-100 tracking-light text-2xl font-bold leading-tight">3</p>
+<p class="text-red-600 dark:text-red-400 text-xs font-medium leading-normal flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">trending_down</span> -1%</p>
+</div>
+</div>
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-2">Live Active Jobs</h3>
+<div class="px-4 pb-4">
+<div class="flex flex-col gap-3">
+<!-- Job Item -->
+<div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">DMV Renewal</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Client: Sarah J. | Runner: Mike T.</p>
+</div>
+<span class="px-2 py-1 bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400 text-xs font-medium rounded">In Progress</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 45 mins elapsed</span>
+<button class="text-primary font-medium flex items-center gap-1 text-sm">Details <span class="material-symbols-outlined text-[16px]">chevron_right</span></button>
+</div>
+</div>
+<!-- Job Item -->
+<div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-bold text-slate-900 dark:text-slate-100">Passport Office</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400">Client: David L. | Runner: Unassigned</p>
+</div>
+<span class="px-2 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 text-xs font-medium rounded">Waiting</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-slate-500 dark:text-slate-400 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 10 mins elapsed</span>
+<button class="text-primary font-medium flex items-center gap-1 text-sm">Details <span class="material-symbols-outlined text-[16px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-2">Pending Runner Apps</h3>
+<div class="px-4 pb-6">
+<div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0">
+<img alt="Applicant Avatar" class="w-full h-full object-cover" data-alt="Male applicant profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg7UQ_-nIHfCMit2YFELfrQFCLO6LIT3e8SmNCevDDh4Ufno905-IY_t3gcfXsFkWob72f02NOqcuDibwKO1Q_y_jTzXY7aj190Py3RXujDQyxwybrmwlambnfTHSTu1_WuqKTB4yf3gS_B5c8w8Lt-RyuEZ2KfptS2QHmCoe-sXRc3cu6nZSiHIGFVfR3_Oot5gyN2evGTQ37kfd9fJOiq-D3c6RPsYk_pUnFIxB5O-p5dzt2KveQKrc5nJUF6-51Zh3eypwc2RA"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-900 dark:text-slate-100">James Wilson</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400">Applied: Today, 10:30 AM</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-primary text-white py-2 rounded font-medium text-sm">Approve</button>
+<button class="flex-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 py-2 rounded font-medium text-sm border border-slate-200 dark:border-slate-600">Reject</button>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-0 w-full flex gap-2 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 pb-6 pt-3 z-10">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-primary" href="#">
+<div class="flex h-8 items-center justify-center material-symbols-outlined" data-icon="Gauge" data-size="24px" data-weight="fill">
+dashboard
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Dashboard</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center material-symbols-outlined" data-icon="Briefcase" data-size="24px" data-weight="regular">
+work
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Jobs</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center material-symbols-outlined" data-icon="Compass" data-size="24px" data-weight="regular">
+directions_run
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">Runners</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
+<div class="flex h-8 items-center justify-center material-symbols-outlined" data-icon="RoadHorizon" data-size="24px" data-weight="regular">
+more_horiz
+</div>
+<p class="text-xs font-medium leading-normal tracking-[0.015em]">More</p>
+</a>
+</div>
+</body></html>

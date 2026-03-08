@@ -424,3 +424,38 @@
 - Job Title: `text-xl font-bold text-slate-900`
 - Status Text: `text-2xl font-black text-slate-800`
 - CTA Text: `text-lg font-bold`
+
+---
+
+# Screen: R5 Runner Earnings Summary
+
+## Layout
+- Mobile-first, Light Mode theme with Navy and Lime aesthetics
+- Top Navigation: Segmented control (Today/Week/Month)
+- Hero Section: Large "Total Earnings" amount and completed jobs count
+- Middle Section: Weekly bar chart representing daily earnings
+- List Section: Recent payouts with dates, counts, and amounts
+- Bottom sticky area: Primary request payout button
+
+## Components
+- `PeriodSelector`
+- `EarningsHero`
+- `EarningsChart`
+- `PayoutList`
+- `PayoutCard`
+
+## Spacing
+- Global padding: `px-6 py-6`
+- Section gap: `gap-8`
+- List gap: `gap-4`
+
+## Surface
+- Background: `bg-slate-50`
+- Cards: `bg-white`, `border-slate-100`
+- Chart accents: `bg-[#80f20d]`
+- Badges: `bg-green-100 text-green-700`
+
+## Typography
+- Hero Amount: `text-4xl font-extrabold text-slate-900`
+- Chart Labels: `text-xs font-semibold text-slate-400`
+- List titles: `text-base font-bold text-slate-900`

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Runner Earnings Summary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#80f20d",
+                        "background-light": "#f7f8f5",
+                        "background-dark": "#192210",
+                        "navy-custom": "#1a2b4b",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col max-w-md mx-auto bg-white dark:bg-background-dark overflow-x-hidden pb-24">
+<!-- Header -->
+<div class="flex items-center bg-white dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-100 dark:border-slate-800">
+<div class="text-navy-custom dark:text-slate-100 flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">arrow_back</span>
+</div>
+<h2 class="text-navy-custom dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">Earnings Summary</h2>
+</div>
+<!-- Timeframe Segmented Control -->
+<div class="flex px-4 py-4">
+<div class="flex h-12 flex-1 items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-navy-custom dark:has-[:checked]:text-white text-slate-500 text-sm font-semibold transition-all">
+<span class="truncate">Today</span>
+<input class="hidden" name="timeframe" type="radio" value="Today"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-navy-custom dark:has-[:checked]:text-white text-slate-500 text-sm font-semibold transition-all">
+<span class="truncate">This Week</span>
+<input checked="" class="hidden" name="timeframe" type="radio" value="This Week"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-white dark:has-[:checked]:bg-slate-700 has-[:checked]:shadow-sm has-[:checked]:text-navy-custom dark:has-[:checked]:text-white text-slate-500 text-sm font-semibold transition-all">
+<span class="truncate">This Month</span>
+<input class="hidden" name="timeframe" type="radio" value="This Month"/>
+</label>
+</div>
+</div>
+<!-- Main Earnings Display -->
+<div class="flex flex-col items-center px-4 pt-6 pb-8">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider mb-2">Total Earnings</p>
+<h1 class="text-navy-custom dark:text-white tracking-tight text-5xl font-extrabold leading-tight">R 2,450.00</h1>
+<div class="mt-3 flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+<p class="text-navy-custom dark:text-slate-200 text-sm font-bold leading-normal">24 Jobs Completed</p>
+</div>
+</div>
+<!-- Weekly Chart Placeholder -->
+<div class="px-4 mb-8">
+<div class="bg-white dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-2xl p-4">
+<div class="flex justify-between items-end h-32 gap-2">
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/20 rounded-t-sm h-[40%]"></div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Mon</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/20 rounded-t-sm h-[65%]"></div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Tue</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary rounded-t-sm h-[90%]"></div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Wed</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/20 rounded-t-sm h-[30%]"></div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Thu</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/20 rounded-t-sm h-[55%]"></div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Fri</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/20 rounded-t-sm h-[80%]"></div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Sat</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/10 rounded-t-sm h-[20%]"></div>
+<span class="text-[10px] text-slate-400 font-bold uppercase">Sun</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Payouts Section -->
+<div class="px-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-navy-custom dark:text-white text-lg font-bold">Recent Payouts</h3>
+<a class="text-primary text-sm font-bold" href="#">View All</a>
+</div>
+<div class="space-y-3">
+<!-- Payout Item 1 -->
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+<div class="flex flex-col gap-1">
+<span class="text-navy-custom dark:text-slate-100 font-bold">R 1,120.00</span>
+<div class="flex items-center gap-2">
+<span class="text-slate-500 dark:text-slate-400 text-xs">Oct 24, 2023</span>
+<span class="size-1 bg-slate-300 rounded-full"></span>
+<span class="text-slate-500 dark:text-slate-400 text-xs">12 Jobs</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase rounded-md">Processed</span>
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+</div>
+</div>
+<!-- Payout Item 2 -->
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+<div class="flex flex-col gap-1">
+<span class="text-navy-custom dark:text-slate-100 font-bold">R 980.50</span>
+<div class="flex items-center gap-2">
+<span class="text-slate-500 dark:text-slate-400 text-xs">Oct 17, 2023</span>
+<span class="size-1 bg-slate-300 rounded-full"></span>
+<span class="text-slate-500 dark:text-slate-400 text-xs">10 Jobs</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase rounded-md">Processed</span>
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+</div>
+</div>
+<!-- Payout Item 3 -->
+<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
+<div class="flex flex-col gap-1">
+<span class="text-navy-custom dark:text-slate-100 font-bold">R 1,450.00</span>
+<div class="flex items-center gap-2">
+<span class="text-slate-500 dark:text-slate-400 text-xs">Oct 10, 2023</span>
+<span class="size-1 bg-slate-300 rounded-full"></span>
+<span class="text-slate-500 dark:text-slate-400 text-xs">15 Jobs</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold uppercase rounded-md">Processed</span>
+<span class="material-symbols-outlined text-slate-300 text-sm">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fixed Bottom Action & Navbar -->
+<div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-t border-slate-100 dark:border-slate-800 pb-safe">
+<div class="px-4 pt-3 pb-3">
+<button class="w-full bg-primary hover:bg-primary/90 text-navy-custom font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-navy-custom">account_balance_wallet</span>
+                    Request Payout
+                </button>
+</div>
+<div class="flex gap-2 bg-white dark:bg-background-dark px-4 pb-3 pt-2">
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">home</span>
+</div>
+<p class="text-xs font-medium leading-normal">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">format_list_bulleted</span>
+</div>
+<p class="text-xs font-medium leading-normal">Jobs</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-navy-custom dark:text-primary" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<p class="text-xs font-bold leading-normal">Earnings</p>
+</a>
+<a class="flex flex-1 flex-col items-center justify-end gap-1 text-slate-400 dark:text-slate-500" href="#">
+<div class="flex h-8 items-center justify-center">
+<span class="material-symbols-outlined">person</span>
+</div>
+<p class="text-xs font-medium leading-normal">Profile</p>
+</a>
+</div>
+</div>
+</div>
+</body></html>
