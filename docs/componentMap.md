@@ -105,3 +105,7 @@
 - `AddCategoryForm`
 - `DisputesTable`
 - `DisputeDetailPanel`
+- `AnalyticsKPIRow`
+- `RevenueChart`
+- `TopRunnersTable`
+- `RegionalTable`

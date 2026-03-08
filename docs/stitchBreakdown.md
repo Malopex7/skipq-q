@@ -635,3 +635,29 @@
 ## Typography
 - Dispute ID: `text-sm font-semibold text-slate-900`
 - Chat message: `text-sm text-slate-700`
+
+---
+
+# Screen: A7 Analytics Dashboard
+
+## Layout
+- Desktop Admin Shell (sidebar + main)
+- KPI row: 4 cards (Revenue MTD, Jobs, New Users, Runner Utilisation)
+- Charts row: Revenue line chart (left) + Jobs by Category bar chart (right)
+- Bottom row: Top 5 Runners table (left) + Regional Performance table (right)
+
+## Components
+- `AnalyticsKPIRow`
+- `RevenueChart`
+- `JobsByCategoryChart`
+- `TopRunnersTable`
+- `RegionalTable`
+
+## Surface
+- KPI cards: `bg-white border border-slate-200 shadow-sm`
+- Chart line: `#80f20d` (brand lime)
+- Bar fill: `#80f20d`
+
+## Typography
+- KPI value: `text-3xl font-bold text-slate-900`
+- KPI label: `text-sm font-semibold text-slate-500`
