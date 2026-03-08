@@ -512,7 +512,7 @@ Style: clean, financial dashboard feel, navy + lime, mobile-first. Tailwind-comp
 
 ## Admin Panel Screens
 
-### A1. Admin Dashboard
+### [x] A1. Admin Dashboard
 
 ```
 generate_screen_from_text · deviceType: DESKTOP · modelId: GEMINI_3_PRO
@@ -540,7 +540,7 @@ Style: professional admin, neutral background, navy sidebar, inline status badge
 
 ---
 
-### A2. User Management
+### [x] A2. User Management
 
 ```
 generate_screen_from_text · deviceType: DESKTOP · modelId: GEMINI_3_FLASH
@@ -560,7 +560,7 @@ Style: clean admin table, navy sidebar, alternating rows. Tailwind-compatible.
 
 ---
 
-### A3. Runner Management
+### [x] A3. Runner Management
 
 ```
 generate_screen_from_text · deviceType: DESKTOP · modelId: GEMINI_3_FLASH

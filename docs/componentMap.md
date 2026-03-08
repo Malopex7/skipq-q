@@ -33,6 +33,7 @@
 - `(runner)/jobs/[id]/page.tsx` (R3 Job Detail)
 - `(runner)/jobs/[id]/active/page.tsx` (R4 Active Job)
 - `(runner)/earnings/page.tsx` (R5 Earnings Summary)
+- `admin/page.tsx` (A1 Admin Dashboard)
 
 ## Sections
 - `ServiceCategoryGrid`
@@ -45,6 +46,9 @@
 - `RunnerInputForm`
 - `StatusUpdatePanel`
 - `PayoutList`
+- `AdminStatsRow`
+- `ActiveJobsTable`
+- `PendingRunnersList`
 
 ## UI Primitives
 - `CategoryCard`
@@ -85,3 +89,12 @@
 - `EarningsHero`
 - `EarningsChart`
 - `PayoutCard`
+- `AdminSidebar`
+- `AdminHeader`
+- `StatCard`
+- `PendingRunnerCard`
+- `RoleFilter`
+- `UserTableRow`
+- `PaginationBar`
+- `PendingApplicationsTable`
+- `RunnerTable`

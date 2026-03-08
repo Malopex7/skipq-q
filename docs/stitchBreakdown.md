@@ -459,3 +459,100 @@
 - Hero Amount: `text-4xl font-extrabold text-slate-900`
 - Chart Labels: `text-xs font-semibold text-slate-400`
 - List titles: `text-base font-bold text-slate-900`
+
+---
+
+# Screen: A1 Admin Dashboard
+
+## Layout
+- Desktop-first, professional neutral theme
+- Left Sidebar (Fixed, 250px): Navigation links, company logo
+- Top Nav/Header: Page title and user profile block
+- Main Content Area:
+  - Top: 4 Stat Cards in a row (Active Jobs, Clients, Runners, Disputes)
+  - Middle: Wide table for Live Active Jobs
+  - Right Side Panel (or split layout): Pending Runner Applications list
+
+## Components
+- `AdminSidebar`
+- `AdminHeader`
+- `AdminStatsRow`
+- `StatCard`
+- `ActiveJobsTable`
+- `PendingRunnersList`
+- `PendingRunnerCard`
+
+## Spacing
+- Global padding: `p-8`
+- Sidebar width: `w-[250px]`
+- Section gaps: `gap-6`
+
+## Surface
+- Main Background: `bg-slate-50`
+- Sidebar: `bg-slate-900`
+- Cards/Tables: `bg-white`, `border-slate-200`, `shadow-sm`
+- Primary Accents: `bg-primary`, `bg-blue-600`
+
+## Typography
+- Page Title: `text-2xl font-bold text-slate-900`
+- Stat Values: `text-3xl font-bold text-slate-900`
+- Table Headers: `text-xs font-semibold text-slate-500 uppercase tracking-wider`
+- Sidebar Links: `text-sm font-medium text-slate-300`
+
+---
+
+# Screen: A2 User Management
+
+## Layout
+- Desktop-first re-use of Admin Shell (sidebar + main)
+- Toolbar: Search input + Role dropdown filter
+- Main Area: Wide data table with alternating row colors
+- Footer: Pagination controls
+
+## Components
+- `RoleFilter`
+- `UserTable`
+- `UserTableRow`
+- `PaginationBar`
+
+## Spacing
+- Table cell padding: `px-6 py-4`
+- Toolbar gap: `gap-4`
+
+## Surface
+- Even rows: `bg-white`
+- Odd rows: `bg-slate-50`
+- Active badge: `bg-green-100 text-green-700`
+- Suspended badge: `bg-red-100 text-red-700`
+- Role badge (Client): `bg-blue-100 text-blue-700`
+- Role badge (Runner): `bg-purple-100 text-purple-700`
+- Role badge (Admin): `bg-slate-200 text-slate-700`
+
+## Typography
+- Table cell: `text-sm text-slate-700`
+- Name: `text-sm font-semibold text-slate-900`
+
+---
+
+# Screen: A3 Runner Management
+
+## Layout
+- Desktop-first re-use of Admin Shell (sidebar + main)
+- Section 1: Pending Applications table (name, date, ID link, Approve/Reject buttons)
+- Section 2: Active Runners table (name, jobs, rating, status, View/Suspend)
+- Each section has its own search + status filter toolbar
+
+## Components
+- `PendingApplicationsTable`
+- `RunnerTable`
+
+## Surface
+- Approve: `bg-green-600 text-white`
+- Reject: `bg-red-600 text-white`
+- Online badge: `bg-green-50 text-green-700`
+- Offline badge: `bg-slate-100 text-slate-500`
+- Suspended badge: `bg-red-50 text-red-700`
+
+## Typography
+- Section headings: `text-lg font-bold text-slate-900`
+- Rating: `text-sm font-semibold text-yellow-600`
