@@ -395,7 +395,7 @@ Style: friendly onboarding, navy, mobile-first. Tailwind-compatible.
 
 ---
 
-### R2. Runner Dashboard — Available Jobs
+### [x] R2. Runner Dashboard — Available Jobs
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_PRO

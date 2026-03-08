@@ -322,3 +322,39 @@
 - Step Title: `text-2xl font-bold text-foreground`
 - Input Labels: `text-sm font-semibold text-slate-700`
 - Input Text: `text-base`
+
+---
+
+# Screen: R2 Runner Dashboard
+
+## Layout
+- Mobile-first, Dark Mode themed
+- Header area: "Available Jobs Near You" and Online/Offline Toggle
+- Earnings Chip: Today's earnings summary
+- Filter Bar: Service type, distance, time chips
+- Main Feed: Scrollable list of available queue jobs
+- Bottom Navigation: Fixed dark theme navigation (Jobs, Active, Earnings, Profile)
+
+## Components
+- `RunnerDashboardHeader`
+- `OnlineToggle`
+- `EarningsChip`
+- `JobFilterBar`
+- `JobFeedCard`
+- `RunnerBottomNav`
+
+## Spacing
+- Global padding: `px-4 py-6`
+- Card stack gap: `gap-4`
+
+## Surface
+- Background: `bg-slate-950`
+- Cards: `bg-slate-900`, `border-slate-800`, `rounded-2xl`
+- Accents: `bg-[#80f20d]` (Lime green for pay and toggles)
+- Text Primary: `text-white`
+- Text Secondary: `text-slate-400`
+
+## Typography
+- Section headers: `text-xl font-bold text-white`
+- Card titles: `font-semibold text-base text-white`
+- Pay amount: `text-xl font-bold text-[#80f20d]`

@@ -29,6 +29,7 @@
 - `dashboard/page.tsx` (C9 Client Dashboard)
 - `jobs/[id]/receipt/page.tsx` (C10 Job Completion Receipt)
 - `(runner)/onboard/page.tsx` (R1 Runner Onboarding)
+- `(runner)/jobs/page.tsx` (R2 Runner Dashboard)
 
 ## Sections
 - `ServiceCategoryGrid`
@@ -62,3 +63,9 @@
 - `ReceiptSummaryCard`
 - `RunnerRating`
 - `OnboardingProgress`
+- `RunnerDashboardHeader`
+- `OnlineToggle`
+- `EarningsChip`
+- `JobFilterBar`
+- `JobFeedCard`
+- `RunnerBottomNav`
