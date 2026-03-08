@@ -455,7 +455,7 @@ Style: clean detail card, map at top, key info below, action buttons at bottom. 
 
 ---
 
-### R4. Active Job — Status Updates
+### [x] R4. Active Job — Status Updates
 
 ```
 generate_screen_from_text · deviceType: MOBILE · modelId: GEMINI_3_PRO

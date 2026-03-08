@@ -392,3 +392,35 @@
 - Main title: `text-2xl font-bold text-foreground`
 - Data labels: `text-sm font-semibold text-muted-foreground`
 - Data values: `text-base font-semibold text-foreground`
+
+---
+
+# Screen: R4 Runner Active Job
+
+## Layout
+- Mobile-first, Light Mode theme focused on large actions
+- Header: Minimalist header with "Active Job" and service/client name
+- Main stage: Current status card (large centered text)
+- Primary Action area: Huge button for the next status transition
+- Secondary Actions: Chat with client, Upload Proof (when applicable), Report Issue
+
+## Components
+- `ActiveJobHeader`
+- `CurrentStatusCard`
+- `StatusUpdateAction`
+- `ProofUploadButton`
+
+## Spacing
+- Global padding: `px-6 py-8`
+- Button gaps: `gap-4`
+
+## Surface
+- Background: `bg-slate-50`
+- Status Card: `bg-white`, `border-slate-200`, `shadow-md`
+- Primary CTA: `bg-[#80f20d]`
+- Secondary CTA: `bg-slate-900 text-white`
+
+## Typography
+- Job Title: `text-xl font-bold text-slate-900`
+- Status Text: `text-2xl font-black text-slate-800`
+- CTA Text: `text-lg font-bold`

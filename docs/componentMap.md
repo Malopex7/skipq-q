@@ -31,6 +31,7 @@
 - `(runner)/onboard/page.tsx` (R1 Runner Onboarding)
 - `(runner)/jobs/page.tsx` (R2 Runner Dashboard)
 - `(runner)/jobs/[id]/page.tsx` (R3 Job Detail)
+- `(runner)/jobs/[id]/active/page.tsx` (R4 Active Job)
 
 ## Sections
 - `ServiceCategoryGrid`
@@ -41,6 +42,7 @@
 - `ChatThread`
 - `RecentJobsList`
 - `RunnerInputForm`
+- `StatusUpdatePanel`
 
 ## UI Primitives
 - `CategoryCard`
@@ -73,3 +75,7 @@
 - `JobDetailMap`
 - `JobDetailCard`
 - `JobActionFooter`
+- `ActiveJobHeader`
+- `CurrentStatusCard`
+- `StatusUpdateAction`
+- `ProofUploadButton`
