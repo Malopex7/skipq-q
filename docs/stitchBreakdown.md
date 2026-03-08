@@ -610,3 +610,28 @@
 ## Typography
 - Service name: `text-sm font-semibold text-slate-900`
 - Price values: `text-sm text-slate-700 font-medium`
+
+---
+
+# Screen: A6 Disputes & Escalations
+
+## Layout
+- Desktop Admin Shell (sidebar + main)
+- Toolbar: status filter (Open/Investigating/Resolved), date range, issue type
+- Main: disputes table, Open rows highlighted with light-red background
+- Slide-in side panel on row click: job summary + chat transcript + resolution actions
+
+## Components
+- `DisputesTable`
+- `DisputeDetailPanel`
+
+## Surface
+- Open row highlight: `bg-red-50`
+- Open badge: `bg-red-100 text-red-700`
+- Investigating badge: `bg-orange-100 text-orange-700`
+- Resolved badge: `bg-green-100 text-green-700`
+- Panel bg: `bg-white border-l border-slate-200 shadow-2xl`
+
+## Typography
+- Dispute ID: `text-sm font-semibold text-slate-900`
+- Chat message: `text-sm text-slate-700`

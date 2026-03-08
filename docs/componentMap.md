@@ -103,3 +103,5 @@
 - `AutoRefreshIndicator`
 - `ServiceCategoryTable`
 - `AddCategoryForm`
+- `DisputesTable`
+- `DisputeDetailPanel`

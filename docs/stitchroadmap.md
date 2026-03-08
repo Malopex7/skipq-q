@@ -627,7 +627,7 @@ Style: clean admin settings page, navy sidebar, inline editable rows. Tailwind-c
 
 ---
 
-### A6. Disputes & Escalations
+### [x] A6. Disputes & Escalations
 
 ```
 generate_screen_from_text · deviceType: DESKTOP · modelId: GEMINI_3_FLASH
