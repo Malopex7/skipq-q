@@ -86,7 +86,7 @@ export default function ReceiptPage() {
                 </main>
 
                 {/* Fixed Bottom Actions */}
-                <div className="fixed bottom-0 left-0 right-0 p-6 bg-white/95 backdrop-blur-sm border-t shadow-[0_-10px_30px_rgba(0,0,0,0.03)] z-50">
+                <div className="fixed bottom-[72px] left-0 right-0 p-6 bg-white/95 backdrop-blur-sm border-t shadow-[0_-10px_30px_rgba(0,0,0,0.03)] z-50">
                     <div className="max-w-md mx-auto flex flex-col gap-3">
                         <Button asChild className="w-full h-14 text-base font-bold rounded-xl shadow-md">
                             <Link href="/book">Book Another Queue</Link>

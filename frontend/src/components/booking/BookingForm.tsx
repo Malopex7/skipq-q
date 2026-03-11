@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { TimeSlotPicker } from "./TimeSlotPicker"
 import { Button } from "@/components/ui/button"
 import { api } from "@/lib/api"
@@ -28,8 +28,23 @@ interface BookingFormProps {
 
 export function BookingForm({ serviceName, branchName }: BookingFormProps) {
     const router = useRouter()
+    const [selectedDateIdx, setSelectedDateIdx] = useState(0)
     const [selectedSlot, setSelectedSlot] = useState<string | null>(null)
     const [submitting, setSubmitting] = useState(false)
+
+    const dates = useMemo(() => {
+        const arr = []
+        for (let i = 0; i < 4; i++) {
+            const d = new Date()
+            d.setDate(d.getDate() + i)
+            let label = ""
+            if (i === 0) label = "Today"
+            else if (i === 1) label = "Tomorrow"
+            else label = d.toLocaleDateString('en-ZA', { weekday: 'short', day: 'numeric', month: 'short' })
+            arr.push({ label, date: d })
+        }
+        return arr
+    }, [])
 
     const handleSubmit = async () => {
         if (!selectedSlot) return alert("Please select a time slot")
@@ -37,27 +52,25 @@ export function BookingForm({ serviceName, branchName }: BookingFormProps) {
         try {
             setSubmitting(true)
 
-            // Just picking today for mock dates, adapting slot
-            const date = new Date()
-            const [time, modifier] = selectedSlot.split(' ')
-            let hours = time.split(':')[0]
-            const minutes = time.split(':')[1]
-            if (hours === '12') hours = '00'
-            if (modifier === 'PM') hours = (parseInt(hours, 10) + 12).toString()
+            const targetDate = new Date(dates[selectedDateIdx].date)
 
-            date.setHours(parseInt(hours, 10))
-            date.setMinutes(parseInt(minutes, 10))
-            date.setSeconds(0)
+            if (selectedSlot === "morning") {
+                targetDate.setHours(8, 0, 0, 0)
+            } else if (selectedSlot === "afternoon") {
+                targetDate.setHours(13, 0, 0, 0)
+            } else {
+                targetDate.setHours(10, 0, 0, 0) // default specific for now
+            }
 
             const res = await api.post<{ _id: string }>("/api/jobs", {
                 serviceType: serviceName, // Since backend expects string for now
                 branchName,
                 address: branchName, // Temp fallback since branch has no address string yet
-                scheduledTime: date.toISOString(),
+                scheduledTime: targetDate.toISOString(),
                 payAmount: 150 // Standard fallback mock price, in future fetch properly or calculate
             })
 
-            router.push(`/jobs/${res._id}/tracker`) // Fixed router slug
+            router.push(`/book/tracker?jobId=${res._id}`)
 
         } catch (err) {
             console.error(err)
@@ -71,11 +84,15 @@ export function BookingForm({ serviceName, branchName }: BookingFormProps) {
             {/* Date & Time */}
             <div className="flex flex-col gap-4">
                 <h3 className="text-sm font-semibold text-foreground">When do you need the runner?</h3>
-                {/* Mock Horizontal Date Scroll */}
+                {/* Dynamic Horizontal Date Scroll */}
                 <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none -mx-4 px-4">
-                    {["Today", "Tomorrow", "Wed, 12 Oct", "Thu, 13 Oct"].map((date, i) => (
-                        <button key={date} className={`flex-shrink-0 px-6 py-3 rounded-xl border font-medium text-sm transition-colors ${i === 0 ? "border-primary bg-primary/5 text-primary ring-1 ring-primary/20" : "bg-white border-slate-200 text-foreground"}`}>
-                            {date}
+                    {dates.map((d, i) => (
+                        <button
+                            key={d.label}
+                            type="button"
+                            onClick={() => setSelectedDateIdx(i)}
+                            className={`flex-shrink-0 px-6 py-3 rounded-xl border font-medium text-sm transition-colors ${i === selectedDateIdx ? "border-primary bg-primary/5 text-primary ring-1 ring-primary/20" : "bg-white border-slate-200 text-foreground hover:bg-slate-50"}`}>
+                            {d.label}
                         </button>
                     ))}
                 </div>
@@ -100,7 +117,7 @@ export function BookingForm({ serviceName, branchName }: BookingFormProps) {
             </div>
 
             {/* Price & Submit Fixed at Bottom */}
-            <div className="fixed bottom-0 left-0 right-0 p-6 bg-white border-t border-slate-100 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] pb-8 z-50">
+            <div className="fixed bottom-[72px] left-0 right-0 p-6 bg-white border-t border-slate-100 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] pb-8 z-50">
                 <div className="max-w-md mx-auto flex items-center justify-between mb-4">
                     <span className="text-sm font-semibold text-muted-foreground">Estimated Total</span>
                     <span className="text-2xl font-bold text-primary">R 150.00</span>

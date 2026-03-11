@@ -100,19 +100,19 @@ export function RunnerProfile() {
             <div className="w-full max-w-md bg-white min-h-screen flex flex-col pb-24 border-x border-slate-200 shadow-sm">
 
                 {/* Header */}
-                <div className="bg-slate-950 pt-16 pb-10 px-6 text-center relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_50%_-20%,#80f20d,transparent_70%)]" />
+                <div className="bg-white pt-16 pb-10 px-6 text-center relative overflow-hidden border-b border-slate-100">
+                    <div className="absolute top-0 left-0 w-full h-full opacity-30 bg-[radial-gradient(circle_at_50%_-20%,rgba(128,242,13,0.5),transparent_70%)]" />
                     <div className="relative z-10">
-                        <div className="mx-auto h-24 w-24 rounded-full bg-[#80f20d] flex items-center justify-center text-slate-950 font-black text-3xl border-4 border-white shadow-xl mb-4 transform hover:scale-105 transition-transform">
+                        <div className="mx-auto h-24 w-24 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-black text-3xl border-4 border-white shadow-xl mb-4 transform hover:scale-105 transition-transform">
                             {profile.userId.avatarUrl ? (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img src={profile.userId.avatarUrl} alt="" className="h-full w-full object-cover rounded-full" />
                             ) : initials}
                         </div>
-                        <h1 className="text-2xl font-black text-white tracking-tight">{profile.userId.name}</h1>
+                        <h1 className="text-2xl font-black text-slate-900 tracking-tight">{profile.userId.name}</h1>
                         <div className="flex items-center justify-center gap-1.5 mt-2">
-                            <Star className="h-4 w-4 text-[#80f20d] fill-[#80f20d]" />
-                            <span className="text-sm font-bold text-white/90">{profile.rating.toFixed(1)} Rating</span>
+                            <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
+                            <span className="text-sm font-bold text-slate-600">{profile.rating.toFixed(1)} Rating</span>
                         </div>
                     </div>
                 </div>
@@ -170,8 +170,8 @@ export function RunnerProfile() {
                         <div className="flex flex-wrap gap-2 mt-3">
                             {profile.serviceAreas?.length > 0 ? (
                                 profile.serviceAreas.map(area => (
-                                    <div key={area} className="flex items-center gap-1.5 bg-slate-900 text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-sm hover:scale-105 transition-transform">
-                                        <MapPin className="h-3 w-3 text-[#80f20d]" />
+                                    <div key={area} className="flex items-center gap-1.5 bg-slate-100 text-slate-700 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm hover:scale-105 transition-transform border border-slate-200">
+                                        <MapPin className="h-3 w-3 text-green-600" />
                                         {area}
                                     </div>
                                 ))
@@ -184,7 +184,7 @@ export function RunnerProfile() {
 
                 {/* Actions */}
                 <div className="px-6 py-8 space-y-4 flex-1 bg-slate-50/30">
-                    <Button className="w-full h-14 font-black rounded-2xl bg-slate-950 hover:bg-slate-900 text-white shadow-lg active:scale-[0.98] transition-all">
+                    <Button className="w-full h-14 font-black rounded-2xl bg-slate-900 hover:bg-slate-800 text-white shadow-lg active:scale-[0.98] transition-all">
                         <Pencil className="h-5 w-5 mr-3" />
                         Edit Profile Details
                     </Button>

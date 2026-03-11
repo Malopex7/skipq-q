@@ -10,7 +10,7 @@ export function ClientBottomNav() {
 
     const tabs = [
         { name: "Home", href: "/dashboard", icon: Home },
-        { name: "My Jobs", href: "/jobs", icon: ClipboardList },
+        { name: "My Jobs", href: "/my-jobs", icon: ClipboardList },
         { name: "Messages", href: "/messages", icon: MessageSquare },
         { name: "Profile", href: "/profile", icon: User },
     ]

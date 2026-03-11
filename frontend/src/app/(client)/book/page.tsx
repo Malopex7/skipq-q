@@ -8,7 +8,7 @@ export default function SelectServicePage() {
                 <PageHeader
                     title="What queue do you need?"
                     subtitle="Select a category to find nearby runners."
-                    backHref="/"
+                    backHref="/dashboard"
                 />
 
                 <main className="px-6 py-4">

@@ -15,7 +15,7 @@ export function ChatInputArea() {
     const [text, setText] = useState("")
 
     return (
-        <div className="sticky bottom-0 bg-slate-50 border-t pb-safe pt-2 px-4 shadow-[0_-10px_30px_rgba(0,0,0,0.02)] z-20">
+        <div className="sticky bottom-[72px] bg-slate-50 border-t pb-safe pt-2 px-4 shadow-[0_-10px_30px_rgba(0,0,0,0.02)] z-20">
 
             {/* Quick Replies */}
             <div className="flex gap-2 overflow-x-auto pb-3 mb-1 scrollbar-none -mx-4 px-4">

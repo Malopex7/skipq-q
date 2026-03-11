@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema(
         role: { type: String, enum: ['client', 'runner', 'admin'], default: 'client' },
         isActive: { type: Boolean, default: true },
         isVerified: { type: Boolean, default: false }, // email/password accounts only
+        verifyToken: { type: String, default: null },   // raw random bytes token
         avatarUrl: { type: String, default: '' },
         firebaseUid: { type: String, default: '' },     // links Firebase UID → MongoDB user
     },

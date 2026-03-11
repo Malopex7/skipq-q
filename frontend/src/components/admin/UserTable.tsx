@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Search } from "lucide-react"
 import { api } from "@/lib/api"
 
-interface User {
+export interface User {
     _id: string
     name: string
     email: string
@@ -12,6 +12,7 @@ interface User {
     isActive: boolean
     createdAt: string
 }
+
 
 type RoleFilter = "All" | "client" | "runner" | "admin"
 
@@ -31,7 +32,7 @@ function SkeletonRow() {
     )
 }
 
-export function UserTable() {
+export function UserTable({ onSelect, selectedId }: { onSelect?: (u: User) => void, selectedId?: string | null }) {
     const [users, setUsers] = useState<User[]>([])
     const [loading, setLoading] = useState(true)
     const [search, setSearch] = useState("")
@@ -126,7 +127,7 @@ export function UserTable() {
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm flex justify-end gap-3">
-                                            <button className="font-semibold text-blue-600 hover:text-blue-800 transition-colors">View</button>
+                                            <button onClick={() => onSelect?.(user)} className={`font-semibold transition-colors ${selectedId === user._id ? "text-slate-900" : "text-blue-600 hover:text-blue-800"}`}>View</button>
                                             {user.isActive && user.role !== "admin" ? (
                                                 <button onClick={() => handleSuspend(user._id)} className="font-semibold text-red-500 hover:text-red-700 transition-colors">Suspend</button>
                                             ) : (

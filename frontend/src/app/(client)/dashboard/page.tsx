@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { DashboardHeader } from "@/components/dashboard/DashboardHeader"
 import { ActiveJobBanner } from "@/components/dashboard/ActiveJobBanner"
 import { JobHistoryCard } from "@/components/dashboard/JobHistoryCard"
-import { ClientBottomNav } from "@/components/dashboard/ClientBottomNav"
+
 import { Plus } from "lucide-react"
 import Link from "next/link"
 import { api } from "@/lib/api"
@@ -82,7 +82,7 @@ export default function ClientDashboardPage() {
                             <section>
                                 <div className="flex items-center justify-between mb-4">
                                     <h3 className="text-lg font-bold text-foreground">Recent Activity</h3>
-                                    <Link href="/jobs" className="text-sm font-semibold text-primary hover:underline">
+                                    <Link href="/my-jobs" className="text-sm font-semibold text-primary hover:underline">
                                         View All
                                     </Link>
                                 </div>
@@ -118,7 +118,7 @@ export default function ClientDashboardPage() {
                     Book New Queue
                 </Link>
 
-                <ClientBottomNav />
+
             </div>
         </div>
     )

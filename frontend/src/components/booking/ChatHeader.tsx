@@ -1,5 +1,5 @@
 import { ArrowLeft, MoreVertical } from "lucide-react"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 interface ChatHeaderProps {
     runnerName: string;
@@ -8,15 +8,17 @@ interface ChatHeaderProps {
 }
 
 export function ChatHeader({ runnerName, runnerAvatar, isActive = true }: ChatHeaderProps) {
+    const router = useRouter()
+
     return (
         <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
-                <Link
-                    href="/book/tracker"
+                <button
+                    onClick={() => router.back()}
                     className="h-10 w-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-700 -ml-2"
                 >
                     <ArrowLeft className="h-5 w-5" />
-                </Link>
+                </button>
 
                 <div className="relative">
                     <div className="h-10 w-10 rounded-full bg-slate-200 overflow-hidden flex items-center justify-center">

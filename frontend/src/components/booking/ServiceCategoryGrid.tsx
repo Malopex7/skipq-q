@@ -79,7 +79,7 @@ export function ServiceCategoryGrid() {
             </div>
 
             {/* Continue Action */}
-            <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background to-background/0 pointer-events-none">
+            <div className="fixed bottom-[72px] left-0 right-0 p-6 bg-gradient-to-t from-background to-background/0 pointer-events-none">
                 <button
                     disabled={!selectedId}
                     onClick={handleContinue}

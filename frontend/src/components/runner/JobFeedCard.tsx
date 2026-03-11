@@ -23,27 +23,27 @@ export function JobFeedCard({
     payAmount
 }: JobFeedCardProps) {
     return (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg">
+        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
             <div className="flex justify-between items-start mb-4">
                 <div>
-                    <h3 className="font-bold text-lg text-white mb-1 tracking-tight">{serviceName}</h3>
-                    <p className="text-sm font-medium text-slate-400">{branchName}</p>
+                    <h3 className="font-bold text-lg text-slate-900 mb-1 tracking-tight">{serviceName}</h3>
+                    <p className="text-sm font-medium text-slate-500">{branchName}</p>
                 </div>
-                <div className="bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-700">
-                    <span className="text-xl font-bold text-[#80f20d] tracking-tight">{payAmount}</span>
+                <div className="bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-100">
+                    <span className="text-xl font-bold text-green-600 tracking-tight">{payAmount}</span>
                 </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-5">
-                <div className="flex items-center gap-2 text-slate-300 bg-slate-800/50 p-2.5 rounded-lg">
+                <div className="flex items-center gap-2 text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
                     <MapPin className="h-4 w-4 text-slate-400 shrink-0" />
                     <span className="text-sm font-semibold">{distance}</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-300 bg-slate-800/50 p-2.5 rounded-lg">
+                <div className="flex items-center gap-2 text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-100">
                     <Clock className="h-4 w-4 text-slate-400 shrink-0" />
                     <span className="text-sm font-semibold">{scheduledTime}</span>
                 </div>
-                <div className="flex items-center gap-2 text-slate-300 bg-slate-800/50 p-2.5 rounded-lg col-span-2">
+                <div className="flex items-center gap-2 text-slate-600 bg-slate-50 p-2.5 rounded-lg col-span-2 border border-slate-100">
                     <Timer className="h-4 w-4 text-slate-400 shrink-0" />
                     <span className="text-sm font-semibold">Est. {duration}</span>
                 </div>

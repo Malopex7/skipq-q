@@ -31,7 +31,7 @@ export function ActiveJobBanner({ jobId, runnerName, branchName, status }: Activ
                 </div>
 
                 <Link
-                    href={`/jobs/${jobId}/tracker`}
+                    href={`/book/tracker?jobId=${jobId}`}
                     className="flex items-center justify-center w-full bg-[#80f20d] hover:bg-[#72db0c] text-slate-900 font-bold py-3.5 rounded-xl transition-colors shadow-sm"
                 >
                     Track Live

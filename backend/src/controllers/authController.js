@@ -67,7 +67,7 @@ export async function register(req, res) {
     const allowedRole = role === 'runner' ? 'runner' : 'client'
 
     const user = await User.create({
-        name, email, password, role: allowedRole,
+        name, email, password, role: allowedRole, verifyToken
     })
 
     if (allowedRole === 'runner') {
@@ -114,4 +114,21 @@ export async function getMe(req, res) {
     const user = await User.findById(req.user.id).select('-password')
     if (!user) return res.status(404).json({ message: 'User not found' })
     res.json(user)
+}
+
+// ─── POST /api/auth/verify-email ───────────────────────────────────────────
+export async function verifyEmail(req, res) {
+    const { token, id } = req.body
+    if (!token || !id) return res.status(400).json({ message: 'Missing token or id' })
+
+    const user = await User.findById(id)
+    if (!user) return res.status(404).json({ message: 'User not found' })
+    if (user.isVerified) return res.status(400).json({ message: 'Email already verified' })
+    if (user.verifyToken !== token) return res.status(401).json({ message: 'Invalid verification token' })
+
+    user.isVerified = true
+    user.verifyToken = null
+    await user.save()
+
+    res.json({ message: 'Email verified successfully', token: signToken(user), user: userPayload(user) })
 }
